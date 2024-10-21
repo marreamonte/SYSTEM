@@ -1,0 +1,28 @@
+{% extends "admin/admin_dashboard.html" %}
+
+{% block content %}
+<div class="container-fluid border rounded" style="margin: 5px">
+    <table class="table table-hover" >
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in faculty %}
+                  <tr>
+                    <td>{{i.faculty_staff_id}}</td>
+                    <td>{{i.surname}}</td>
+                    <td>{{i.first_name}}</td>
+                    <td>{{i.middle_name}}</td>
+                    <td><a href="student_profile/{{i.student_lrn}}/" class="btn btn-primary btn-sm">View</a></td>
+                  </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

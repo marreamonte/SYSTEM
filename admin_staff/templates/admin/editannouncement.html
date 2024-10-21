@@ -1,0 +1,20 @@
+{% extends "admin/admin_dashboard.html" %}
+
+{% block content %}
+    <form method="post" action="/update_announcement/{{Annoucement.annoucement_id}}">
+        {% csrf_token %}
+        <div class="container border rounded" style='padding: 5px;'>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" id="title" value="{{annoucement.title}}">
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Description</label>
+                <input type="text" name="body" class="form-control" id="title" value="{{annoucement.body}}">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-block">Update</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

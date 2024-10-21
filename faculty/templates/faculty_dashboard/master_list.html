@@ -1,0 +1,50 @@
+{% extends "faculty_dashboard/faculty_dashboard.html" %}
+
+{% block content %}
+<div class="container-fluid border">
+    
+    <div class="container-fluid" style="margin: 10px; display: flex; justify-content: space-between" > 
+        <div>
+            <h3>Adviser: Juan Luna</h3>
+        </div>
+        <div>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <table class="table border rounded table-hover" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <thead>
+          <tr>
+            <th class="table-active" scope="col">LRN</th>
+            <th class="table-active" scope="col">Surname</th>
+            <th class="table-active" scope="col">Name</th>
+            <th class="table-active" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td><a href="{% url "acads_record" %}" role="button" class="btn btn-white">Views</a></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td><a href="{% url "acads_record" %}" role="button" class="btn btn-white">Views</a></td>
+        </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td >Larry the Bird</td>
+            <td>ibon</td>
+            <td><a href="{% url "acads_record" %}" role="button" class="btn btn-white">Views</a></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+{% endblock content %}

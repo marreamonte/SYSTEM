@@ -1,0 +1,30 @@
+{% extends "admin/admin_dashboard.html" %}
+
+{% block content %}
+<div class="container-fluid border rounded" style="margin: 5px">
+    <table class="table table-hover" >
+        <thead>
+          <tr>
+            <th scope="col">LRN</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in student %}
+                  <tr>
+                    <td>{{i.student_lrn}}</td>
+                    <td>{{i.surname}}</td>
+                    <td>{{i.first_name}}</td>
+                    <td>{{i.middle_name}}</td>
+                    <td>
+                      <button class="btn btn-primary" type="submit" title="Edit"><a href="{% url "student_profile" i.student_lrn %}" style="text-decoration: none; color: inherit" >View</a></button>
+                    </td>
+                  </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
