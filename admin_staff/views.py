@@ -22,7 +22,8 @@ def update_announcement(request, id):
     return redirect('/')
 
 
-
+def classes(request):
+    return render(request, 'admin/classes.html');
 
 
 
