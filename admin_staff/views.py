@@ -4,6 +4,7 @@ from .models import StudentProfile, Annoucement, AdminStaff, AdmissionStaff, Fac
 # Create your views here.
 
 #announcement
+
 def admin_dashboard(request):
     annoucement = Annoucement.objects.all()
     return render(request, 'admin/admin_dashboard.html', { 'annoucement': annoucement})

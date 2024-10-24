@@ -2,59 +2,146 @@
 
 
 {% block content %}
-<div class="row">
-    <div class="col-4">
-      <div class="list-group list-group-flush " id="list-tab" role="tablist">
-        <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#home-list" role="tab" aria-controls="list-home">Section 1</a>
-        <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Section 2</a>
-        <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Section 3</a>
-        <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Section 4</a>
-      </div>
-    </div>
-    <div class="col-8">
-      <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="home-list" role="tabpanel" aria-labelledby="list-home-list">
-            <div class="container-fluid border rounded" style="margin: 5px">
-                <div class="col-4">
-                    <label for="">Adviser:</label>
-                    <h3>Mangkanor</h3>
-                </div>
-                <div class="col-4">
-                    <label for="">Section:</label>
-                    <h3>RP</h3>
-                </div>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Section 1</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Section 2</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Section 3</button>
+  </li>
+</ul>
 
-                <label for="">Student List</label>
-                <table class="table table-hover" >
-                    <thead>
-                      <tr>
-                        <th scope="col">LRN</th>
-                        <th scope="col">Surname</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Middle Name</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        {% for i in student %}
-                              <tr>
-                                <td>{{i.student_lrn}}</td>
-                                <td>{{i.surname}}</td>
-                                <td>{{i.first_name}}</td>
-                                <td>{{i.middle_name}}</td>
-                                <td>
-                                  <button class="btn btn-primary" type="submit" title="Edit"><a href="{% url "student_profile" i.student_lrn %}" style="text-decoration: none; color: inherit" >View</a></button>
-                                </td>
-                              </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+{% comment %} content tab {% endcomment %}
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    <div class="container-fluid border rounded" style="padding: 20px">
+      <div class="row g-3">
+        <div class="col-md-4">
+            <label for="">Adviser:</label>
+            <h3>Escobar</h3>
         </div>
-        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+        <div class="col-md-4">
+            <label for="">Section:</label>
+            <h3>runner</h3>
+        </div>
       </div>
+    
+      <label for="">Student List</label>
+      <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th scope="col">LRN</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Name</th>
+              <th scope="col">Middle Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for i in student %}
+                    <tr>
+                      <td>{{i.student_lrn}}</td>
+                      <td>{{i.surname}}</td>
+                      <td>{{i.first_name}}</td>
+                      <td>{{i.middle_name}}</td>
+                      <td>
+                        <button class="btn btn-primary" type="submit" title="Edit"><a href="{% url "student_profile" i.student_lrn %}" style="text-decoration: none; color: inherit" >View</a></button>
+                      </td>
+                    </tr>
+              {% endfor %}
+          </tbody>
+      </table>
     </div>
+    
+  </div>
+
+  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <div class="container-fluid border rounded" style="padding: 20px">
+      <div class="col-4">
+          <label for="">Adviser:</label>
+          <h3>Pepe</h3>
+      </div>
+      <div class="col-4">
+          <label for="">Section:</label>
+          <h3>Ah</h3>
+      </div>
+    
+      <label for="">Student List</label>
+      <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th scope="col">LRN</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Name</th>
+              <th scope="col">Middle Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for i in student %}
+                    <tr>
+                      <td>{{i.student_lrn}}</td>
+                      <td>{{i.surname}}</td>
+                      <td>{{i.first_name}}</td>
+                      <td>{{i.middle_name}}</td>
+                      <td>
+                        <button class="btn btn-primary" type="submit" title="Edit"><a href="{% url "student_profile" i.student_lrn %}" style="text-decoration: none; color: inherit" >View</a></button>
+                      </td>
+                    </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+    </div>
+    
+  </div>
+
+  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+    <div class="container-fluid border rounded" style="padding: 20px">
+      <div class="col-4">
+          <label for="">Adviser:</label>
+          <h3>Damaso</h3>
+      </div>
+      <div class="col-4">
+          <label for="">Section:</label>
+          <h3>RP</h3>
+      </div>
+    
+      <label for="">Student List</label>
+      <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th scope="col">LRN</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Name</th>
+              <th scope="col">Middle Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for i in student %}
+                    <tr>
+                      <td>{{i.student_lrn}}</td>
+                      <td>{{i.surname}}</td>
+                      <td>{{i.first_name}}</td>
+                      <td>{{i.middle_name}}</td>
+                      <td>
+                        <button class="btn btn-primary" type="submit" title="Edit"><a href="{% url "student_profile" i.student_lrn %}" style="text-decoration: none; color: inherit" >View</a></button>
+                      </td>
+                    </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+    </div>
+    
+  </div>
 </div>
 {% endblock content %}
+
+
+
+
+
