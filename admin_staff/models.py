@@ -2,27 +2,39 @@ from django.db import models
 
 # Create your models here.
 
+class section(models.Model):
+    section_name = models.CharField(max_length=20);
+
+class level(models.Model):
+    level = models.CharField(max_length=20);
+
+
 class Annoucement(models.Model):
     annoucement_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=50)
     body = models.TextField()
+    event = models.DateField(null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'annoucement'
+    
+    def __str__(self):
+        return str(self.annoucement_id)
 
 
 class StudentProfile(models.Model):
-    student_lrn = models.IntegerField(primary_key=True)
+    student_lrn = models.BigIntegerField(primary_key=True)
     surname = models.CharField(max_length=24)
     first_name = models.CharField(max_length=24)
     middle_name = models.CharField(max_length=24, blank=True, null=True)
+    section = models.CharField(max_length=24)
     gender = models.CharField(max_length=24, blank=True, null=True)
     birth_date = models.DateField()
     birth_place = models.CharField(max_length=200, blank=True, null=True)
     religion = models.CharField(max_length=24, blank=True, null=True)
-    civil_status = models.CharField(max_length=10, blank=True, null=True)
-    contact = models.IntegerField(blank=True, null=True)
+    civil_status = models.CharField(max_length=10, null=True)
+    contact = models.BigIntegerField(blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
@@ -61,17 +73,21 @@ class AdmissionStaff(models.Model):
 
 
 class FacultyStaff(models.Model):
-    faculty_staff_id = models.IntegerField(primary_key=True)
+    faculty_staff_id = models.BigIntegerField(primary_key=True)
     surname = models.CharField(max_length=24)
     first_name = models.CharField(max_length=24)
     middle_name = models.CharField(max_length=24, blank=True, null=True)
+    section = models.CharField(max_length=24)
     gender = models.CharField(max_length=24, blank=True, null=True)
-    contact = models.IntegerField(blank=True, null=True)
+    contact = models.BigIntegerField(blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'faculty_staff'
+
+    def __str__(self):
+        return str(self.faculty_staff_id)
 
 
 class GuidanceStaff(models.Model):

@@ -23,8 +23,8 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <div class="d-md-none ms-2 mb-2">
-                    <span style="font-size: large; font-weight: bold; color: white;">St. Vincent Institute of Technology</span><br>
-                    <p style="font-size: 15px; margin: 0; color: white; letter-spacing: 1px; text-align: center">Student Management System</p>
+                    <h1 style="font-size: large; font-weight: bold; color: white; text-align: center; padding: 0; margin: 0;">St. Vincent Institute of Technology</h1><br>
+                    <p style="font-size: 15px; margin: 0; color: white; text-align: center">Student Management System</p>
                   </div>
                   <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                       <li class="nav-item active"><a class="nav-link" href="{% url "admin_dashboard" %}" style="color: white">Dashboard</a></li>
@@ -74,7 +74,7 @@
             {% for i in annoucement%}
               <h4>{{i.title}}</h4>
               <p>{{i.body}}</p>
-              <button class="btn btn-success" type="submit" title="Add"><a href=" {% url "annoucement" i.annoucement_id %}" style="text-decoration: none; color: inherit">Add</a></button>
+              
               <button class="btn btn-primary" type="submit" title="Edit"><a href=" {% url "annoucement" i.annoucement_id %}" style="text-decoration: none; color: inherit">Edit</a></button>
             {% endfor %}
           </div>

@@ -13,14 +13,30 @@ def annoucement(request, id):
     annoucement = Annoucement.objects.get(annoucement_id = id)
     return render(request, 'admin/editannouncement.html', {'annoucement': annoucement})
 
+
 def update_announcement(request, id):
-    newtile = request.POST['title']
-    newbody = request.POST['body']
+    newtile = request.POST['title'];
+    newbody = request.POST['body'];
+
     accouncement = Annoucement.objects.get(annoucement_id = id)
+
     accouncement.title = newtile
     accouncement.body = newbody
     accouncement.save()
     return redirect('/')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def classes(request):

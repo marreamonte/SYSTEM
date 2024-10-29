@@ -1,7 +1,7 @@
 {% extends "admin/admin_dashboard.html" %}
 
 {% block content %}
-    <form method="post" action="/update_announcement/{{Annoucement.annoucement_id}}">
+    <form method="post" action=" {% url 'update_announcement' annoucement_id %} ">
         {% csrf_token %}
         <div class="container border rounded" style='padding: 5px;'>
             <div class="mb-3">
