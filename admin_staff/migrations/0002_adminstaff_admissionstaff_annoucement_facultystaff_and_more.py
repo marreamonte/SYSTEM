@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Annoucement',
             fields=[
-                ('annoucement_id', models.AutoField(primary_key=True, serialize=False)),
+                ('announcement_id', models.AutoField(primary_key=True, serialize=False)),
                 ('title', models.CharField(max_length=50)),
                 ('body', models.TextField()),
             ],

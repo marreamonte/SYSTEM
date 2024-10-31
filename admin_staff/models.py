@@ -9,8 +9,8 @@ class level(models.Model):
     level = models.CharField(max_length=20);
 
 
-class Annoucement(models.Model):
-    annoucement_id = models.AutoField(primary_key=True)
+class Announcement(models.Model):
+    announcement_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=50)
     body = models.TextField()
     event = models.DateField(null=True)
@@ -20,7 +20,7 @@ class Annoucement(models.Model):
         db_table = 'annoucement'
     
     def __str__(self):
-        return str(self.annoucement_id)
+        return self.title
 
 
 class StudentProfile(models.Model):

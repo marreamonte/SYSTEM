@@ -3,10 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.admin_dashboard, name='admin_dashboard'),
-    path('annoucement/<int:id>', views.annoucement, name="annoucement" ),
-    path('update_announcement/<int:id>', views.update_announcement, name='update_announcement'),
+    path('edit<int:id>', views.edit_annoucement, name="edit"),
+    path('update/<int:id>', views.update, name="update"),
     
-
 
     path('class/', views.classes, name='classes'),
 

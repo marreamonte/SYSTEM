@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import StudentProfile,Annoucement, AdminStaff, AdmissionStaff, FacultyStaff, GuidanceStaff, RegistrarStaff, section, level
+from .models import StudentProfile,Announcement, AdminStaff, AdmissionStaff, FacultyStaff, GuidanceStaff, RegistrarStaff, section, level
 # Register your models here.
 
 @admin.register(level)
@@ -12,7 +12,7 @@ class section(admin.ModelAdmin):
     list_display = ('section_name', )
 
 
-@admin.register(Annoucement)
+@admin.register(Announcement)
 class announcement(admin.ModelAdmin):
     list_display = ('title', 'event')
     ordering = ('title', )
