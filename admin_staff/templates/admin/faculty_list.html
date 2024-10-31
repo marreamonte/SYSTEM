@@ -19,7 +19,9 @@
                     <td>{{i.surname}}</td>
                     <td>{{i.first_name}}</td>
                     <td>{{i.section}}</td>
-                    <td><a href="student_profile/{{i.student_lrn}}/" class="btn btn-primary btn-sm">View</a></td>
+                    <td>
+                      <button class="btn btn-primary" type="submit" title="Edit"><a href="{% url "faculty_profile" i.faculty_staff_id %}" style="text-decoration: none; color: inherit" >View</a></button>
+                    </td>
                   </tr>
             {% endfor %}
         </tbody>

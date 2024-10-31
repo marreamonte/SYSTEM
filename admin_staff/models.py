@@ -29,11 +29,28 @@ class StudentProfile(models.Model):
     first_name = models.CharField(max_length=24)
     middle_name = models.CharField(max_length=24, blank=True, null=True)
     section = models.CharField(max_length=24)
-    gender = models.CharField(max_length=24, blank=True, null=True)
+    
+    gender_choice = (
+        ('male', 'male',),
+        ('female','female',),
+    )
+    
+    gender = models.CharField(max_length=24, default="gender", choices=gender_choice, blank=True, null=True)
     birth_date = models.DateField()
     birth_place = models.CharField(max_length=200, blank=True, null=True)
     religion = models.CharField(max_length=24, blank=True, null=True)
-    civil_status = models.CharField(max_length=10, null=True)
+    
+    
+    status_choice = (
+        ('single', 'single'),
+        ('married', 'married'),
+        ('separated', 'separated'),
+        ('divorced', 'divorced'),
+        ('widowed', 'widowed'),
+    )
+    civil_status = models.CharField(max_length=10, null=True, default="civil_status", choices=status_choice)
+
+
     contact = models.BigIntegerField(blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)
 
@@ -77,7 +94,18 @@ class FacultyStaff(models.Model):
     surname = models.CharField(max_length=24)
     first_name = models.CharField(max_length=24)
     middle_name = models.CharField(max_length=24, blank=True, null=True)
-    section = models.CharField(max_length=24)
+
+    section_choice = (
+        ('Genesis', 'Genesis'),
+        ('Judges', 'Judges'),
+        ('Exodus', 'Exodus'),
+        ('Ezra', 'Ezra'),
+        ('Psalm', 'Psalm'),
+        ('Zachariah', 'Zachariah'),
+        ('Proverbs', 'Proverbs'),
+    )
+    section = models.CharField(max_length=24, default="section", choices=section_choice,)
+    
     gender = models.CharField(max_length=24, blank=True, null=True)
     contact = models.BigIntegerField(blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)

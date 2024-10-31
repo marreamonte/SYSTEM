@@ -9,7 +9,7 @@ def admin_dashboard(request):
     return render(request, 'admin/admin_dashboard.html', { 'announcement': announcement })
 
 def edit_annoucement(request, id):
-    announcement = get_object_or_404(Announcement, announcement_id = id)
+    announcement = Announcement.objects.get(announcement_id = id)
     return render(request, 'admin/editannouncement.html', { 'announcement': announcement })
 
 def update(request, id):
@@ -44,7 +44,9 @@ def update(request, id):
 
 
 def classes(request):
-    return render(request, 'admin/classes.html');
+    student = StudentProfile.objects.get()
+    faculty = FacultyStaff.objects.get() 
+    return render(request, 'admin/classes.html', {'student': student}, {'faculty': faculty});
 
 
 
@@ -67,6 +69,9 @@ def faculty_list(request):
     faculty = FacultyStaff.objects.all()
     return render(request, 'admin/faculty_list.html', { 'faculty': faculty})
 
+def faculty_profile(request, pk):
+    faculty = FacultyStaff.objects.get(faculty_staff_id = pk)
+    return render(request, 'admin/faculty_profile.html', {'faculty': faculty})
 
 
 
