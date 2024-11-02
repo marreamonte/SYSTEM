@@ -43,8 +43,8 @@ def update(request, id):
 
 
 
-def classes(request):
-    student = StudentProfile.objects.get()
+def classes(request, id):
+    student = StudentProfile.objects.get(student_lrn = id)
     faculty = FacultyStaff.objects.get() 
     return render(request, 'admin/classes.html', {'student': student}, {'faculty': faculty});
 
