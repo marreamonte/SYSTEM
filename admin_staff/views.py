@@ -1,7 +1,17 @@
 from django.shortcuts import render, redirect
 from .models import StudentProfile, Announcement, AdminStaff, AdmissionStaff, FacultyStaff, GuidanceStaff, RegistrarStaff
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
+
+
+def registerAccount(request):
+    form = UserCreationForm
+    context = {'form': form}
+    return render(request, 'admin/register.html', context)
+
+
+
 
 #announcement
 def admin_dashboard(request):
@@ -43,10 +53,8 @@ def update(request, id):
 
 
 
-def classes(request, id):
-    student = StudentProfile.objects.get(student_lrn = id)
-    faculty = FacultyStaff.objects.get() 
-    return render(request, 'admin/classes.html', {'student': student}, {'faculty': faculty});
+def classes(request):
+    return render(request, 'admin/classes.html')
 
 
 
