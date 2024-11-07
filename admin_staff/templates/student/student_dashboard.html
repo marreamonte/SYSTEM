@@ -30,29 +30,8 @@
                   <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                       <li class="nav-item active"><a class="nav-link" href="" style="color: white">hi!! {{request.user}}</a></li>
                       <li class="nav-item active"><a class="nav-link" href="{% url "home" %}" style="color: white">Dashboard</a></li>
-                      
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white'>Classes</a>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{% url "classes" %}">Grade 7</a>
-                              <a class="dropdown-item" href="">Grade 8</a>
-                              <a class="dropdown-item" href="">Grade 9</a>
-                              <a class="dropdown-item" href="">Grade 10</a>
-                          </div>
-                      </li>
-
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white'>List</a>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{% url "student_list" %}">student</a>
-                              <a class="dropdown-item" href="{% url "faculty_list" %}">Faculty</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">Guidance</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">Registrar</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">admission</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">admin</a>
-                          </div>
-                      </li>
-                      
+                      <li class="nav-item active"><a class="nav-link" href="{% url "home" %}" style="color: white">Records</a></li>
+                
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">Account</a>
                           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
