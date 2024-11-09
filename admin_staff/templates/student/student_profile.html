@@ -1,0 +1,69 @@
+{% extends "student/student_dashboard.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <form class="row g-3" >
+        {% csrf_token %}
+        <fieldset class="col-md-6" disabled>
+            <label for="inputEmail4" class="form-label">LRN</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder='student LRN' value="{{student.student_lrn}}">
+        </fieldset>
+        <fieldset class="col-md-6" disabled>
+            <label for="inputEmail4" class="form-label">Username</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder='student LRN' value="{{student.user}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputsurname" class="form-label">Surname</label>
+            <input type="text" class="form-control" id="inputsurname" value="{{student.surname}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputname" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputname" value="{{student.first_name}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputmiddle" class="form-label">Middle Name</label>
+            <input type="text" class="form-control" id="inputmiddle" value="{{student.middle_name}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputState" class="form-label">Gender</label>
+            <input type="text" class="form-control" id="inputgender" value="{{student.gender}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputbirth" class="form-label">Birth Date</label>
+            <input type="input" class="form-control" id="inputbirthdate" value="{{student.birth_date}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputbirth" class="form-label">Birth Place</label>
+            <input type="text" class="form-control" id="inputbirthplace" value="{{student.birth_place}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputreligion" class="form-label">Religion</label>
+            <input type="text" class="form-control" id="inputreligion" value="{{student.religion}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputState" class="form-label">Civil Status</label>
+            <input type="text" class="form-control" id="inputcontact" value="{{student.civil_status}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputcontact" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="inputcontact" value="{{student.contact}}">
+        </fieldset>
+
+        <fieldset class="col-md-6" disabled> 
+            <label for="disabledTextInput" class="form-label">section</label>
+            <input type="text" id="disabledTextInput" class="form-control" value="{{student.section}}">
+        </fieldset>
+
+        <fieldset class="col-md-6" disabled>
+            <label for="inputemail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputemail" value="{{student.email}}">
+        </fieldset>
+
+        <div class="d-grid gap-2">
+            <a role='btn' class="btn btn-primary" href="{% url "setting" %}" style="text-decoration: none; color: white">
+                <i class="bi bi-gear"></i> Go to setting
+            </a>        
+        </div>
+    </form>
+</div>
+{% endblock content %}

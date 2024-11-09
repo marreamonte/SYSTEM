@@ -10,10 +10,12 @@ urlpatterns = [
     path('update/<int:id>', views.update, name="update"),
     path('class/', views.classes, name='classes'),
     path('student/', views.student_list, name='student_list'),
-    path('student_profile/<int:pk>', views.student_profile, name='student_profile'),   
+    path('student/<int:pk>', views.student, name='student'),   
     path('faculty/', views.faculty_list, name='faculty_list'),
     path('profile/<int:pk>', views.faculty_profile, name='faculty_profile'),
 
     #student board
-    path('student', views.student_dashboard, name='student')
+    path('student', views.student_dashboard, name='student'),
+    path('profile', views.student_profile, name='student-profile'),
+    path('setting', views.setting, name='setting')
 ]

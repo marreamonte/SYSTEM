@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import StudentProfile, FacultyStaff, Announcement, AdminStaff, AdmissionStaff,  GuidanceStaff, RegistrarStaff
+from .models import StudentProfile, FacultyStaff, Announcement, AdminStaff, AdmissionStaff,  GuidanceStaff, RegistrarStaff, section
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -69,9 +69,9 @@ def student_list(request):
     students = StudentProfile.objects.all()
     return render(request, 'admin/student_list.html', { 'student': students})
 
-@login_required(login_url='login_user')
+@login_required(login_url='login')
 @allowed_user(allow_roles=['admin'])
-def student_profile(request, pk):
+def student(request, pk):
     student = StudentProfile.objects.get(student_lrn = pk)
     return render(request, 'admin/student_profile.html', {'student': student})
 
@@ -91,8 +91,24 @@ def faculty_profile(request, pk):
 
 
 #student end
-
+@login_required(login_url='login')
+@allowed_user(allow_roles=['student'])
 def student_dashboard(request):
-
-    context = {}
+    announcement = Announcement.objects.all()
+    context = {'announcement':announcement}
     return render(request, 'student/student_dashboard.html', context)
+
+
+@login_required(login_url='login')
+@allowed_user(allow_roles=['student'])
+def student_profile(request):
+    student = request.user.studentprofile
+    context = {'student': student}
+    return render(request, 'student/student_profile.html', context)
+
+@login_required(login_url='login')
+@allowed_user(allow_roles=['student'])
+def setting(request):
+    student = request.user.studentprofile
+    context = {'student': student}
+    return render(request, 'student/settings.html', context)

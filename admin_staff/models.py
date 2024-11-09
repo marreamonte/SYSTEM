@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -45,6 +46,7 @@ class FacultyStaff(models.Model):
     
 
 class StudentProfile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     student_lrn = models.BigIntegerField(primary_key=True)
     surname = models.CharField(max_length=24)
     first_name = models.CharField(max_length=24)
