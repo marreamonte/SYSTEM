@@ -1,0 +1,503 @@
+{% extends "admin/admin_dashboard.html" %}
+
+{% block content %}
+    {% comment %} title {% endcomment %}
+    <div class="page-title mb-4" style="margin:15px;">
+        <h2 style="color: #615EFC; font-weight: bold; margin-right: 20px; padding-left: 50px;">Academic Record</h2>
+        <hr style="margin-top: 0; color: black;">
+    </div>
+    {% comment %} tab-nav {% endcomment %}
+    <div class="container">
+        <ul class="nav nav-tabs" id="facultyTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="gr7-tab" data-bs-toggle="tab" data-bs-target="#gr7-tab-pane" type="button" role="tab" aria-controls="gr7-tab-pane" aria-selected="true">GRADE 7</button>
+            </li> <!--GR 7-->
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="gr8-tab" data-bs-toggle="tab" data-bs-target="#gr8-tab-pane" type="button" role="tab" aria-controls="gr8-tab-pane" aria-selected="true">GRADE 8</button>
+            </li> <!--GR 8-->
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="gr9-tab" data-bs-toggle="tab" data-bs-target="#gr9-tab-pane" type="button" role="tab" aria-controls="gr9-tab-pane" aria-selected="true">GRADE 9</button>
+            </li> <!--GR 9-->
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="gr10-tab" data-bs-toggle="tab" data-bs-target="#gr10-tab-pane" type="button" role="tab" aria-controls="gr10-tab-pane" aria-selected="true">GRADE 10</button>
+            </li> <!--GR 10-->
+        </ul>
+    </div>
+
+    <div class="container">
+        <!--GR 7-->
+        <div class="tab-content" id="facultyTabContent">
+            <div class="tab-pane fade show active" id="gr7-tab-pane" role="tabpanel" aria-labelledby="gr7-tab" tabindex="0">
+                <div class="contaier">
+                    <div class="row">
+                        <div class="col-3 p-0">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="sec-one-list" data-bs-toggle="list" href="#sec-one" role="tab" aria-controls="list-home">GENESIS</a>
+                                <a class="list-group-item list-group-item-action" id="sec-two-list" data-bs-toggle="list" href="#sec-two" role="tab" aria-controls="list-profile">EXODUS</a>
+                            </div>
+                        </div>
+                        <div class="col-9 p-0">
+                            <div class="tab-content" id="nav-tabContent">
+                                <!-- First Tab Content -->
+                                <div class="tab-pane fade show active" id="sec-one" role="tabpanel" aria-labelledby="sec-one-list">
+                                    <table class="table table-hover border">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">First</th>
+                                                <th scope="col">Last</th>
+                                                <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="loadDetails(1)">
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="loadDetails(2)">
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="loadDetails(3)">
+                                                <th scope="row">3</th>
+                                                <td colspan="2">Larry the Bird</td>
+                                                <td>@twitter</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Second Tab Content -->
+                                <div class="tab-pane fade" id="sec-two" role="tabpanel" aria-labelledby="sec-two-list">
+                                    <table class="table table-hover border">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+                                            <th scope="col">Last</th>
+                                            <th scope="col">Handle</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="loadDetails(4)">
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Mujar</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="loadDetails(5)">
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="loadDetails(6)">
+                                            <th scope="row">3</th>
+                                            <td colspan="2">Larry the Bird</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      
+                    <!-- Your existing structure -->
+                    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="detailsModalLabel">Subject Grades</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Table that displays details -->
+                                    <table class="table table-bordered" id="modalTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Subject Codes</th>
+                                                <th scope="col">First Quarter</th>
+                                                <th scope="col">Second Quarter</th>
+                                                <th scope="col">Third Quarter</th>
+                                                <th scope="col">Fourth Quarter</th>
+                                                <th scope="col">Average</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="modalTableBody">
+                                            <!-- Content will be populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--GR 8-->
+        <div class="tab-content" id="facultyTabContent">
+            <div class="tab-pane fade" id="gr8-tab-pane" role="tabpanel" aria-labelledby="gr8-tab" tabindex="0">
+                <div class="contaier">
+                    <div class="row">
+                        <div class="col-3 p-0">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="sec-one-list" data-bs-toggle="list" href="#sec-one" role="tab" aria-controls="list-home">GENESIS</a>
+                                <a class="list-group-item list-group-item-action" id="sec-two-list" data-bs-toggle="list" href="#sec-two" role="tab" aria-controls="list-profile">EXODUS</a>
+                            </div>
+                        </div>
+                        <div class="col-9 p-0">
+                            <div class="tab-content" id="nav-tabContent">
+                                <!-- First Tab Content -->
+                                <div class="tab-pane fade show active" id="sec-one" role="tabpanel" aria-labelledby="sec-one-list">
+                                    <table class="table table-hover border">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">First</th>
+                                                <th scope="col">Last</th>
+                                                <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal2" onclick="loadDetails(7)">
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal2" onclick="loadDetails(8)">
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal2" onclick="loadDetails(9)">
+                                                <th scope="row">3</th>
+                                                <td colspan="2">Larry the Bird</td>
+                                                <td>@twitter</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Second Tab Content -->
+                                <div class="tab-pane fade" id="sec-two" role="tabpanel" aria-labelledby="sec-two-list">
+                                    <table class="table table-hover border">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+                                            <th scope="col">Last</th>
+                                            <th scope="col">Handle</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal2" onclick="loadDetails(10)">
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Mujar</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal2" onclick="loadDetails(11)">
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal2" onclick="loadDetails(12)">
+                                            <th scope="row">3</th>
+                                            <td colspan="2">Larry the Bird</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      
+                    <!-- Your existing structure -->
+                    <div class="modal fade" id="detailsModal2" tabindex="-1" aria-labelledby="detailsModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="detailsModalLabel2">Subject Grades</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Table that displays details -->
+                                    <table class="table table-bordered" id="modalTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Subject Codes</th>
+                                                <th scope="col">First Quarter</th>
+                                                <th scope="col">Second Quarter</th>
+                                                <th scope="col">Third Quarter</th>
+                                                <th scope="col">Fourth Quarter</th>
+                                                <th scope="col">Average</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="modalTableBody2">
+                                            <tr>
+                                                <td scope="row">English</td>
+                                                <td>98</td>
+                                                <td>97</td>
+                                                <td>89</td>
+                                                <td>87</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+        <!--GR 9-->
+        <div class="tab-content" id="facultyTabContent">
+            <div class="tab-pane fade" id="gr9-tab-pane" role="tabpanel" aria-labelledby="gr9-tab" tabindex="0">
+                <div class="contaier">
+                    <div class="row">
+                        <div class="col-3 p-0">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="sec-one-list" data-bs-toggle="list" href="#sec-one" role="tab" aria-controls="list-home">GENESIS</a>
+                                <a class="list-group-item list-group-item-action" id="sec-two-list" data-bs-toggle="list" href="#sec-two" role="tab" aria-controls="list-profile">EXODUS</a>
+                            </div>
+                        </div>
+                        <div class="col-9 p-0">
+                            <div class="tab-content" id="nav-tabContent">
+                                <!-- First Tab Content -->
+                                <div class="tab-pane fade show active" id="sec-one" role="tabpanel" aria-labelledby="sec-one-list">
+                                    <table class="table table-hover border">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">First</th>
+                                                <th scope="col">Last</th>
+                                                <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal3" onclick="loadDetails(13)">
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal3" onclick="loadDetails(14)">
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal3" onclick="loadDetails(15)">
+                                                <th scope="row">3</th>
+                                                <td colspan="2">Larry the Bird</td>
+                                                <td>@twitter</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Second Tab Content -->
+                                <div class="tab-pane fade" id="sec-two" role="tabpanel" aria-labelledby="sec-two-list">
+                                    <table class="table table-hover border">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+                                            <th scope="col">Last</th>
+                                            <th scope="col">Handle</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal3" onclick="loadDetails(16)">
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Mujar</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal3" onclick="loadDetails(17)">
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal3" onclick="loadDetails(18)">
+                                            <th scope="row">3</th>
+                                            <td colspan="2">Larry the Bird</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      
+                    <!-- Your existing structure -->
+                    <div class="modal fade" id="detailsModal3" tabindex="-1" aria-labelledby="detailsModalLabel3" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="detailsModalLabel3">Subject Grades</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Table that displays details -->
+                                    <table class="table table-bordered" id="modalTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Subject Codes</th>
+                                                <th scope="col">First Quarter</th>
+                                                <th scope="col">Second Quarter</th>
+                                                <th scope="col">Third Quarter</th>
+                                                <th scope="col">Fourth Quarter</th>
+                                                <th scope="col">Average</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="modalTableBody3">
+                                            <tr>
+                                                <td scope="row">English</td>
+                                                <td>98</td>
+                                                <td>97</td>
+                                                <td>89</td>
+                                                <td>87</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--GR 10-->
+        <div class="tab-content" id="facultyTabContent">
+            <div class="tab-pane fade" id="gr10-tab-pane" role="tabpanel" aria-labelledby="gr10-tab" tabindex="0">
+                <div class="contaier">
+                    <div class="row">
+                        <div class="col-3 p-0">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="sec-one-list" data-bs-toggle="list" href="#sec-one" role="tab" aria-controls="list-home">GENESIS</a>
+                                <a class="list-group-item list-group-item-action" id="sec-two-list" data-bs-toggle="list" href="#sec-two" role="tab" aria-controls="list-profile">EXODUS</a>
+                            </div>
+                        </div>
+                        <div class="col-9 p-0">
+                            <div class="tab-content" id="nav-tabContent">
+                                <!-- First Tab Content -->
+                                <div class="tab-pane fade show active" id="sec-one" role="tabpanel" aria-labelledby="sec-one-list">
+                                    <table class="table table-hover border">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">First</th>
+                                                <th scope="col">Last</th>
+                                                <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal4" onclick="loadDetails(19)">
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal4" onclick="loadDetails(20)">
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr data-bs-toggle="modal" data-bs-target="#detailsModal4" onclick="loadDetails(21)">
+                                                <th scope="row">3</th>
+                                                <td colspan="2">Larry the Bird</td>
+                                                <td>@twitter</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Second Tab Content -->
+                                <div class="tab-pane fade" id="sec-two" role="tabpanel" aria-labelledby="sec-two-list">
+                                    <table class="table table-hover border">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+                                            <th scope="col">Last</th>
+                                            <th scope="col">Handle</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal4" onclick="loadDetails(22)">
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Mujar</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal4" onclick="loadDetails(23)">
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#detailsModal4" onclick="loadDetails(23)">
+                                            <th scope="row">3</th>
+                                            <td colspan="2">Larry the Bird</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      
+                    <!-- Your existing structure -->
+                    <div class="modal fade" id="detailsModal4" tabindex="-1" aria-labelledby="detailsModalLabel4" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="detailsModalLabel4">Subject Grades</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Table that displays details -->
+                                    <table class="table table-bordered" id="modalTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Subject Codes</th>
+                                                <th scope="col">First Quarter</th>
+                                                <th scope="col">Second Quarter</th>
+                                                <th scope="col">Third Quarter</th>
+                                                <th scope="col">Fourth Quarter</th>
+                                                <th scope="col">Average</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="modalTableBody4">
+                                            <tr>
+                                                <td scope="row">English</td>
+                                                <td>98</td>
+                                                <td>97</td>
+                                                <td>89</td>
+                                                <td>87</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

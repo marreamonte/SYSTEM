@@ -39,14 +39,6 @@ class announcement(admin.ModelAdmin):
     search_fields = ('title', )
 
 
-
-
-
-
-
-
-
-
 admin.site.register(AdminStaff)
 admin.site.register(AdmissionStaff)
 

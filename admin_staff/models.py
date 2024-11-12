@@ -17,6 +17,7 @@ class section(models.Model):
 
 
 class FacultyStaff(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     faculty_staff_id = models.BigIntegerField(primary_key=True)
     surname = models.CharField(max_length=24)
     first_name = models.CharField(max_length=24)

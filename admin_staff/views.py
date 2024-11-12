@@ -88,6 +88,11 @@ def faculty_profile(request, pk):
     faculty = FacultyStaff.objects.get(faculty_staff_id = pk)
     return render(request, 'admin/faculty_profile.html', {'faculty': faculty})
 
+@login_required(login_url='login')
+@allowed_user(allow_roles=['admin'])
+def student_record(request):
+    return render(request, 'admin/academic_record.html')
+
 
 
 #student end
@@ -112,3 +117,15 @@ def setting(request):
     student = request.user.studentprofile
     context = {'student': student}
     return render(request, 'student/settings.html', context)
+
+
+#faculty end
+@login_required(login_url='login')
+@allowed_user(allow_roles=['faculty'])
+def faculty(request):
+    return render(request, 'faculty/faculty-dashboard.html')
+
+@login_required(login_url='login')
+@allowed_user(allow_roles=['faculty'])
+def faculty_student(request):
+    return render(request, 'faculty/student_list.html')
