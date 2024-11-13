@@ -22,6 +22,7 @@ urlpatterns = [
     #student board
     path('student', views.student_dashboard, name='student'),
     path('profile', views.student_profile, name='student-profile'),
+    path("settings", views.settings_student, name="settings"),
 
 
     #faculty board

@@ -82,6 +82,7 @@ def anecdotal_record(request):
 def financial_record(request):
     return render(request, "accounting/financial_record.html")
 
+
 #student end
 @login_required(login_url='login')
 @allowed_user(allow_roles=['student'])
@@ -97,6 +98,9 @@ def student_dashboard(request):
 def student_profile(request):
     student = request.user.studentprofile
     return render(request, 'student/student_profile.html', {'student': student})
+
+def settings_student(request):
+    return render(request, "student/settings.html")
 
 
 
