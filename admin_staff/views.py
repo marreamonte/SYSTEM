@@ -31,7 +31,7 @@ def logout_user(request):
     return redirect('login')
     
 
-#announcement
+#announcement_admin
 @login_required(login_url='login')
 @admin_only
 def admin_dashboard(request):
@@ -74,7 +74,13 @@ def faculty_profile(request, pk):
 def accademic_record(request):
     return render(request, 'admin/academic_record.html')
 
+def anecdotal_record(request):
+    return render(request, "admin/anecdotal_record.html")
 
+
+#accounting end
+def financial_record(request):
+    return render(request, "accounting/financial_record.html")
 
 #student end
 @login_required(login_url='login')

@@ -1,0 +1,234 @@
+{% extends "admin\admin_dashboard.html" %}
+
+{% block content %}
+
+
+    <!-- Title Page -->
+    <div class="page-title mb-4" style="margin:15px;">
+        <h2 style="color: #615EFC; font-weight: bold; margin-right: 20px; padding-left: 50px;">Anecdotal Record</h2>
+        <hr style="margin-top: 0; color: black;">
+    </div>
+    <!-- Tabs Nav -->
+    <div class="container">
+        <ul class="nav nav-tabs" id="facultyTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="sec1-tab" data-bs-toggle="tab" data-bs-target="#sec1-tab-pane" type="button" role="tab" aria-controls="sec1-tab-pane" aria-selected="true">Students Anecdotal Record</button>
+            </li> <!--VIEW/EDIT LIST-->
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="sec2-tab" data-bs-toggle="tab" data-bs-target="#sec2-tab-pane" type="button" role="tab" aria-controls="sec2-tab-pane" aria-selected="true">Add New Violation Record</button>
+            </li> <!--ADD RECORD-->
+        </ul>
+    </div>
+    <!-- Tabs Contents -->
+    <div class="container border rounded-3">
+        <!--VIEW/EDIT LIST-->
+        <div class="tab-content" id="facultyTabContent">
+            <div class="tab-pane fade show active" id="sec1-tab-pane" role="tabpanel" aria-labelledby="sec1-tab" tabindex="0">
+                <div class="contaier">
+                    <div class="col-md-4 col-sm-6 m-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Student LRN" aria-label="Student's LRN" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div> <!-- dapat mag-appear name ng student sa search bar -->    
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">LRN</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Grade Level</th>
+                                <th scope="col">Section</th>
+                                <th scope="col">Violation Count</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">136644080098</th>
+                                <td>Mujar</td>
+                                <td>Mark Melvin</td>
+                                <td>Grade 7</td>
+                                <td>Genesis</td>
+                                <td>2</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal">View</button>
+                                </td>
+                                <!-- Modal Structure -->
+                                <div class="modal modal-xl fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title" id="viewVioHistory"><b>Violation History</b></h3>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- Modal content goes here -->
+                                                <div class="container">
+                                                    <div class="row g-2">
+                                                        <div class="col-md-6">
+                                                            <h5><b>Student Name:</b></h5>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <h5><b>LRN:</b></h5>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <h5><b>Grade Level:</b></h5>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <h5><b>Section:</b></h5>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <h5><b>Violation Count:</b></h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span><hr></span>
+
+                                                <!-- Scrollable container for cards -->
+                                                <div class="scrollable-cards-container" style="max-height: 20vw; overflow-y: auto; justify-items: center;">
+                                                    <div class="card m-3 p-2" style="width: 65vw;">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Violation 1</h5>
+                                                        </div>
+                                                        <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item">Date of Occurrence:</li>
+                                                            <li class="list-group-item">Time</li>
+                                                            <li class="list-group-item">Violation Type</li>
+                                                            <li class="list-group-item">Violation Description</li>
+                                                            <li class="list-group-item">Violation Count</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="card m-3 p-2" style="width: 65vw;">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Violation 2</h5>
+                                                        </div>
+                                                        <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item">Date of Occurrence:</li>
+                                                            <li class="list-group-item">Time</li>
+                                                            <li class="list-group-item">Violation Type</li>
+                                                            <li class="list-group-item">Violation Description</li>
+                                                            <li class="list-group-item">Violation Count</li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- Add more cards as needed -->
+                                                </div> 
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Edit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                               
+                            </tr>
+                            <tr>
+                                <th scope="row">136644080057</th>
+                                <td>Mendoza</td>
+                                <td>Luigi</td>
+                                <td>Grade 8</td>
+                                <td>Genesis</td>
+                                <td>3</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">View</button>
+                                </td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--ADD RECORD-->
+        <div class="tab-content" id="facultyTabContent">
+            <div class="tab-pane fade m-3" id="sec2-tab-pane" role="tabpanel" aria-labelledby="sec2-tab" tabindex="0">
+                <div class="container p-4 pb-0">
+                    <div class="col-md-4 col-sm-6 mb-3 ms-auto">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Student LRN" aria-label="Student's LRN" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div> <!-- dapat mag-appear name ng student sa search bar -->                  
+                    
+                    <!-- after appearing, dapat it will display name ng selected student (codes below) -->
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <h5><b>Student Name:</b></h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5><b>LRN:</b></h5>
+                        </div>
+                        <div class="col-md-5">
+                            <h5><b>Grade Level:</b></h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5><b>Section:</b></h5>
+                        </div>
+                        <div class="col-md-3">
+                            <h5><b>Violation Count:</b></h5>
+                        </div>
+                    </div> 
+
+                    <form class="row g-3">
+                        <div class="col-md-3">
+                            <label for="inputEmail4" class="form-label">Date of Occurence</label>
+                            <input type="date" class="form-control" id="inputDate">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputPassword4" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="inputTime">
+                        </div>
+                        <div class="cold-md-9"><!-- for space purposes--></div>
+                        <div class="col-md-3">
+                            <label for="inputState" class="form-label">Violation Type</label>
+                            <select id="inputState" class="form-select">
+                                <option selected disabled>...</option>
+                                <option>Minor Offense</option>
+                                <option>Serious Offense</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label">Violation Description</label>
+                            <select id="inputState" class="form-select">
+                                <option selected disabled>...</option>
+                                <option>Improper/Incomplete Uniform</option>
+                                <option>Irregularity in Attendance</option>
+                                <option>Habitual Tardiness</option>
+                                <option>No Excuse Letter for Absences</option>
+                                <option>Outlandish Appearance</option>
+                                <option>Use of Vulgar Words</option>
+                                <option>Littering</option>
+                                <option>Loitering</option>
+                                <option>Disruption of Classes</option>
+                                <option>Uttering Vulgar Words</option>
+                                <option>Cutting Classes</option>
+                                <option>Shouting/Howling</option>
+                                <option>Impoliteness</option>
+                                <option>Not Attending School Activities</option>
+                                <option>Improper Behavior</option>
+                                <option>Bringing Cellular Phones or War Toys</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputState" class="form-label">Violation Count</label>
+                            <select id="inputState" class="form-select">
+                                <option selected disabled>...</option>
+                                <option>1st Offense</option>
+                                <option>2nd Offense</option>
+                                <option>3rd Offense</option>
+                                <option>4th Offense</option>
+                                <option>5th Offense</option>
+                            </select>
+                        </div>
+                        <div class="col-12 text-end" style="margin: 3vh auto;">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+

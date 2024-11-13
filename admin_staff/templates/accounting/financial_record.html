@@ -1,0 +1,200 @@
+{% extends "accounting\accounting_dashboard.html" %}
+
+{% block content %}
+
+    <!-- Title Page -->
+    <div class="page-title mb-4" style="margin:15px;">
+        <h2 style="color: #615EFC; font-weight: bold; margin-right: 20px; padding-left: 50px;">Financial Record</h2>
+        <hr style="margin-top: 0; color: black;">
+    </div>
+    <!-- Tabs Nav -->
+    <div class="container">
+        <ul class="nav nav-tabs" id="facultyTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="sec1-tab" data-bs-toggle="tab" data-bs-target="#sec1-tab-pane" type="button" role="tab" aria-controls="sec1-tab-pane" aria-selected="true">Students Financial Record</button>
+            </li> <!--VIEW/EDIT LIST-->
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="sec2-tab" data-bs-toggle="tab" data-bs-target="#sec2-tab-pane" type="button" role="tab" aria-controls="sec2-tab-pane" aria-selected="true">Add New Payment Record</button>
+            </li> <!--ADD RECORD-->
+        </ul>
+    </div>
+    <!-- Tabs Contents -->
+    <div class="container border rounded-3">
+        <!--VIEW/EDIT LIST-->
+        <div class="tab-content" id="facultyTabContent">
+            <div class="tab-pane fade show active" id="sec1-tab-pane" role="tabpanel" aria-labelledby="sec1-tab" tabindex="0">
+                <div class="contaier">
+                    <div class="col-md-4 col-sm-6 m-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Student LRN" aria-label="Student's LRN" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div> <!-- dapat mag-appear name ng student sa search bar -->    
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">LRN</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Grade Level</th>
+                                <th scope="col">Section</th>
+                                <th scope="col">Receipt No.</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">136644080056</th>
+                                <td>Mujar</td>
+                                <td>Mark Melvin</td>
+                                <td>Grade 7</td>
+                                <td>Genesis</td>
+                                <td>00001</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal">View</button>
+                                </td>
+                                <!-- Modal Structure -->
+                                <div class="modal modal-xl fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title" id="viewVioHistory"><b>Payment History</b></h3>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- Modal content goes here -->
+                                                <div class="container">
+                                                    <div class="row g-2">
+                                                        <div class="col-md-6">
+                                                            <h5><b>Student Name:</b></h5>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <h5><b>LRN</b></h5>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <h5><b>Grade Level:</b></h5>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <h5><b>Section:</b></h5>
+                                                        </div>
+                                                    </div>
+                                                    <span><hr></span>
+
+                                                    <!-- Scrollable container for cards -->
+                                                    <div class="scrollable-cards-container" style="max-height: 20vw; overflow-y: auto; justify-items: center;">
+                                                        <div class="card m-3 p-2" style="width: 65vw;">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Payment Information 1</h5>
+                                                            </div>
+                                                            <ul class="list-group list-group-flush">
+                                                                <li class="list-group-item">Date of Payment</li>
+                                                                <li class="list-group-item">Amount</li>
+                                                                <li class="list-group-item">Payment Method</li>
+                                                                <li class="list-group-item">Receipt Number</li>
+                                                                <li class="list-group-item">Payment Description</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="card m-3 p-2" style="width: 65vw;">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Payment Information 2</h5>
+                                                            </div>
+                                                            <ul class="list-group list-group-flush">
+                                                                <li class="list-group-item">Date of Payment</li>
+                                                                <li class="list-group-item">Amount</li>
+                                                                <li class="list-group-item">Payment Method</li>
+                                                                <li class="list-group-item">Receipt Number</li>
+                                                                <li class="list-group-item">Payment Description</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- Add more cards as needed -->
+                                                    </div> 
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Edit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </tr>
+                            <tr>
+                                <th scope="row">136644080014</th>
+                                <td>Mendoza</td>
+                                <td>Luigi</td>
+                                <td>Grade 8</td>
+                                <td>Genesis</td>
+                                <td>00002</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">View</button>
+                                </td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--ADD RECORD-->
+        <div class="tab-content" id="facultyTabContent">
+            <div class="tab-pane fade m-3" id="sec2-tab-pane" role="tabpanel" aria-labelledby="sec2-tab" tabindex="0">
+                <div class="container p-4 pb-0">
+                    <div class="col-md-4 col-sm-6 mb-3 ms-auto">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Student LRN" aria-label="Student's LRN" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div> <!-- dapat mag-appear name ng student sa search bar -->
+                    
+                    <!-- after appearing, dapat it will display name ng selected student (codes below) -->
+                    <div class="row g-2 pb-2">
+                        <div class="col-md-6">
+                            <h5><b>Student Name:</b></h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5><b>LRN:</b></h5>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><b>Grade Level:</b></h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5><b>Section:</b></h5>
+                        </div>
+                    </div>
+
+                    <form class="row g-3">
+                        <div class="col-md-3">
+                            <label for="inputEmail4" class="form-label">Date of Payment</label>
+                            <input type="date" class="form-control" id="inputDate">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputPassword4" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="inputAmount" name="amount" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputState" class="form-label">Payment Method</label>
+                            <select id="inputState" class="form-select">
+                                <option selected disabled>...</option>
+                                <option>Bank Transfer</option>
+                                <option>Credit/Debit Card Payment</option>
+                                <option>Mobile Payment Apps</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <label for="inputZip" class="form-label">Receipt Number</label>
+                            <input type="number" class="form-control" id="inputZip">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="exampleFormControlTextarea1" class="form-label">Payment Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+                        <div class="col-12 text-end" style="margin: 3vh auto;">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

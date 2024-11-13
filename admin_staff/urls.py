@@ -14,6 +14,10 @@ urlpatterns = [
     path('faculty-list/', views.faculty_list, name='faculty_list'),
     path('profile/<int:pk>', views.faculty_profile, name='faculty_profile'),
     path('record', views.accademic_record, name='record'),
+    path("anecdotal", views.anecdotal_record, name="anecdotalrecord"),
+
+    #accounting board
+    path("financial", views.financial_record, name="financialrecord"),
 
     #student board
     path('student', views.student_dashboard, name='student'),
