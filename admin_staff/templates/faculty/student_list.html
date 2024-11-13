@@ -1,38 +1,47 @@
 {% extends "faculty/faculty-dashboard.html" %}
 
 {% block content %}
-
-<div class="container-fluid border rounded" style="margin: 5px">
-
-  <table class="table table-hover" >
-        <thead>
-          <tr>
-            <th scope="col">LRN</th>
-            <th scope="col">Surname</th>
-            <th scope="col">Name</th>
-            <th scope="col">Section</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-            <label for="">Adviser</label>
-            <h3>{{adviser.surname}} {{adviser.first_name}}</h3>
-            <h4 style='color: #615EFC'>Section: {{adviser.section}}</h4>
-            <label for="">students</label>
-            {% for advisoryClass in advisoryClass %}
-                  <tr>
-                    <td>{{advisoryClass.student_lrn}}</td>
-                    <td>{{advisoryClass.surname}}</td>
-                    <td>{{advisoryClass.first_name}}</td>
-                    <td>{{advisoryClass.section}}</td>
-                    <td>
-                      <button class="btn btn-primary" type="submit" title="Edit"><a href="" style="text-decoration: none; color: inherit" >
-                        <i class="bi bi-eye"></i>
-                      </a></button>
-                    </td>
-                  </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<!-- Title Page -->
+<div class="page-title mb-4" style="margin:15px;">
+  <h2 style="color: #615EFC; font-weight: bold; margin-right: 20px; padding-left: 50px;">Masterlist</h2>
+  <hr style="margin-top: 0; color: black;">
 </div>
+
+<div class="container">
+  <div class="container-fluid border rounded" style="margin: 5px">
+    
+    <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">LRN</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Name</th>
+              <th scope="col">Section</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              <label for="" style="padding: 4vh 1vw 0;">Adviser</label>
+              <h3  style="padding: 0 1vw;">{{adviser.surname}} {{adviser.first_name}}</h3>
+              <h4 style='color: #615EFC; padding: 0 1vw;'>Section: {{adviser.section}}</h4>
+              <label for="" style="padding: 2vh 1vw 0;">Students</label>
+              {% for advisoryClass in advisoryClass %}
+                    <tr>
+                      <td>{{advisoryClass.student_lrn}}</td>
+                      <td>{{advisoryClass.surname}}</td>
+                      <td>{{advisoryClass.first_name}}</td>
+                      <td>{{advisoryClass.section}}</td>
+                      <td>
+                        <button class="btn btn-primary" type="submit" title="Edit"><a href="" style="text-decoration: none; color: inherit" >
+                          <i class="bi bi-eye"></i>
+                        </a></button>
+                      </td>
+                    </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </div>
+</div>
+
+
 {% endblock content %}
