@@ -1,0 +1,65 @@
+{% extends "faculty/faculty-dashboard.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <form class="row g-3" >
+        {% csrf_token %}
+        <fieldset class="col-md-6" disabled>
+            <label for="inputEmail4" class="form-label">LRN</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder='student LRN' value="{{adviser.faculty_staff_id}}">
+        </fieldset>
+        <fieldset class="col-md-6" disabled>
+            <label for="inputEmail4" class="form-label">Username</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder='student LRN' value="{{adviser.user}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputsurname" class="form-label">Surname</label>
+            <input type="text" class="form-control" id="inputsurname" value="{{adviser.surname}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputname" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputname" value="{{adviser.first_name}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputmiddle" class="form-label">Middle Name</label>
+            <input type="text" class="form-control" id="inputmiddle" value="{{adviser.middle_name}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputState" class="form-label">Gender</label>
+            <input type="text" class="form-control" id="inputgender" value="{{adviser.gender}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputbirth" class="form-label">Birth Date</label>
+            <input type="input" class="form-control" id="inputbirthdate" value="{{adviser.birth_date}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputbirth" class="form-label">Birth Place</label>
+            <input type="text" class="form-control" id="inputbirthplace" value="{{adviser.birth_place}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputreligion" class="form-label">Religion</label>
+            <input type="text" class="form-control" id="inputreligion" value="{{adviser.religion}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputState" class="form-label">Civil Status</label>
+            <input type="text" class="form-control" id="inputcontact" value="{{adviser.civil_status}}">
+        </fieldset>
+        <fieldset class="col-md-4" disabled>
+            <label for="inputcontact" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="inputcontact" value="{{adviser.contact}}">
+        </fieldset>
+
+        <fieldset class="col-md-6" disabled> 
+            <label for="disabledTextInput" class="form-label">section</label>
+            <input type="text" id="disabledTextInput" class="form-control" value="{{adviser.section}}">
+        </fieldset>
+
+        <fieldset class="col-md-6" disabled>
+            <label for="inputemail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputemail" value="{{adviser.email}}">
+        </fieldset>
+
+        
+    </form>
+</div>
+{% endblock content %}

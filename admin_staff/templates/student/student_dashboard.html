@@ -63,10 +63,8 @@
               Annoucement
             </h1>
             <hr>
-            {% for announcement in announcement %}
-              <h4>{{announcement.title}}</h4>
-              <p>{{announcement.body}}</p>
-            {% endfor %}
+            <h4>title: {{announcement.title}}</h4>
+            <h5>{{announcement.body}}</h5>
           </div>
   
           {% comment %} cards {% endcomment %}
@@ -75,7 +73,7 @@
             <div class="card col-md-5 shadow" style="margin: 5px;">
               <div class="card-body">
                 <h5 class="card-title">
-                  <i class="bi bi-person-circle"></i> {{request.user}}
+                  <i class="bi bi-person-circle"></i> {{student.surname}} {{student.first_name}}
                 </h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Student Name</h6>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -89,9 +87,13 @@
     
             <div class="card col-md-5 shadow" style="margin: 5px;">
               <div class="card-body">
-                <h5 class="card-title"></h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{student.section}}</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title">
+                    Adviser: {{student.adviser}}
+                  </h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">
+                    Section: {{student.section}}
+                  </h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="card-link" style='text-decoration: none'>Views</a>
               </div>
             </div>

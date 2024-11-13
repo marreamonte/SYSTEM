@@ -3,12 +3,6 @@
 {% block content %}
 
 <div class="container-fluid border rounded" style="margin: 5px">
-  
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end" style='margin: 10px'>
-    <button type="button" class="btn btn-primary">
-      <i class="bi bi-plus-circle"></i> add student
-    </button>
-  </div>
 
   <table class="table table-hover" >
         <thead>
@@ -21,14 +15,18 @@
           </tr>
         </thead>
         <tbody>
-            {% for i in student %}
+            <label for="">Adviser</label>
+            <h3>{{adviser.surname}} {{adviser.first_name}}</h3>
+            <h4 style='color: #615EFC'>Section: {{adviser.section}}</h4>
+            <label for="">students</label>
+            {% for advisoryClass in advisoryClass %}
                   <tr>
-                    <td>{{i.student_lrn}}</td>
-                    <td>{{i.surname}}</td>
-                    <td>{{i.first_name}}</td>
-                    <td>{{i.section}}</td>
+                    <td>{{advisoryClass.student_lrn}}</td>
+                    <td>{{advisoryClass.surname}}</td>
+                    <td>{{advisoryClass.first_name}}</td>
+                    <td>{{advisoryClass.section}}</td>
                     <td>
-                      <button class="btn btn-primary" type="submit" title="Edit"><a href="{% url "student" i.student_lrn %}" style="text-decoration: none; color: inherit" >
+                      <button class="btn btn-primary" type="submit" title="Edit"><a href="" style="text-decoration: none; color: inherit" >
                         <i class="bi bi-eye"></i>
                       </a></button>
                     </td>

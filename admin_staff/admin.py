@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import StudentProfile,Announcement, FacultyStaff, AdminStaff, AdmissionStaff, GuidanceStaff, RegistrarStaff, section, level, UserAccount
+from .models import StudentProfile,Announcement, FacultyStaff, AdminStaff, AdmissionStaff, GuidanceStaff, RegistrarStaff, section, level
 
 # Register your models here.
 
 @admin.register(StudentProfile)
 class students(admin.ModelAdmin):
-    list_display = ('student_lrn', 'surname', 'first_name', 'section')
+    list_display = ('student_lrn', 'surname', 'first_name', 'adviser','section') 
     ordering = ('student_lrn', )
     search_fields = ('surname', 'student_lrn')
 
@@ -18,11 +18,7 @@ class faculty(admin.ModelAdmin):
 admin.site.register(section)
 
 
-
-@admin.register(UserAccount)
-class students(admin.ModelAdmin):
-    list_display = ('user', 'username', 'passcode')
-    
+ 
 @admin.register(level)
 class level(admin.ModelAdmin):
     list_display = ('level',  )

@@ -31,7 +31,7 @@
                       <li class="nav-item active"><a class="nav-link" href="{% url "faculty" %}" style="color: white">
                         <i class="bi bi-bar-chart"></i> Dashboard
                       </a></li>
-                      <li class="nav-item active"><a class="nav-link" href="{% url "faculty_student" %}" style="color: white">
+                      <li class="nav-item active"><a class="nav-link" href="{% url "advisory" %}" style="color: white">
                         <i class="bi bi-clipboard2-data"></i> masterlist
                       </a></li>
                 
@@ -40,7 +40,7 @@
                             <i class="bi bi-person"></i> Account
                           </a>
                           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="">
+                              <a class="dropdown-item" href="{% url "faculty_info" %}">
                                 <i class="bi bi-person"></i> Profile
                               </a>
                               <div class="dropdown-divider"></div>
@@ -62,10 +62,8 @@
               Annoucement
             </h1>
             <hr>
-            {% for announcement in announcement %}
-              <h4>{{announcement.title}}</h4>
-              <p>{{announcement.body}}</p>
-            {% endfor %}
+            <h4>title: {{announcement.title}}</h4>
+            <h5>{{announcement.body}}</h5>
           </div>
   
           {% comment %} cards {% endcomment %}
@@ -74,12 +72,12 @@
             <div class="card col-md-5 shadow" style="margin: 5px;">
               <div class="card-body">
                 <h5 class="card-title">
-                  <i class="bi bi-person-circle"></i> {{request.user}}
+                  <i class="bi bi-person-circle"></i> {{adviser.surname}} {{adviser.first_name}}
                 </h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Student Name</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Faculty Name</h6>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <div class="d-grid gap-2">
-                  <a href="" role='btn' class="btn btn-primary" style='text-decoration: none; color: white'>
+                  <a href="{% url "faculty_info" %}" role='btn' class="btn btn-primary" style='text-decoration: none; color: white'>
                     <i class="bi bi-eye"></i> View
                   </a>
                 </div>
@@ -88,8 +86,12 @@
     
             <div class="card col-md-5 shadow" style="margin: 5px;">
               <div class="card-body">
-                <h5 class="card-title"></h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{student.section}}</h6>
+                <h5 class="card-title">
+                  Section: {{adviser.section}}
+                </h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Section name
+                </h6>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="card-link" style='text-decoration: none'>Views</a>
               </div>

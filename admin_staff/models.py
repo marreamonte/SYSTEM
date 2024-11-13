@@ -7,9 +7,13 @@ from django.contrib.auth.models import User
 class level(models.Model):
     level = models.CharField(max_length=20);
     
+    def __str__(self):
+        return self.level
+
+
 class section(models.Model):
-    
     section_name = models.CharField(max_length=20)
+    level = models.ForeignKey("level", null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.section_name
@@ -30,11 +34,22 @@ class FacultyStaff(models.Model):
     )
     gender = models.CharField(max_length=10, default="Gender", choices=gender_choice, null=True)
     
+    civil_choice = (
+        ('Single', 'Single'),
+        ('Married', 'Married'),
+        ('Divorced', 'Divorced'),
+        ('Widowed', 'Widowed'),
+    )
+    civil_status = models.CharField(max_length=10, default="Status", choices=civil_choice, blank=True, null=True)
+
+    birth_date = models.DateField(null=True)
+    birth_place = models.CharField(max_length=200, blank=True, null=True)
+    religion = models.CharField(max_length=24, blank=True, null=True)
+
     contact = models.BigIntegerField(blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)
     
     section = models.OneToOneField('section', blank=True, null=True, on_delete=models.SET_NULL)
-
     
     class Meta:
         managed = True
@@ -76,13 +91,13 @@ class StudentProfile(models.Model):
 
     
     section = models.ForeignKey('section', null=True, on_delete=models.SET_NULL)
-
+    adviser = models.ForeignKey('FacultyStaff', blank=True, null=True, on_delete=models.SET_NULL)
     class Meta:
         managed = True
         db_table = 'student_profile'
     
     def __str__(self):
-        return str(self.student_lrn)
+        return self.surname
     
     
 
@@ -180,12 +195,3 @@ class Announcement(models.Model):
     
 
 
-
-class UserAccount(models.Model):
-    user = models.OneToOneField("StudentProfile", models.DO_NOTHING, blank=True, null=True)
-    username = models.CharField(max_length=50)
-    passcode = models.CharField(max_length=50)
-
-    class Meta:
-        managed = False
-        db_table = 'user_account'

@@ -38,31 +38,12 @@ def admin_dashboard(request):
     announcement = Announcement.objects.all()
     return render(request, 'admin/admin_dashboard.html', { 'announcement': announcement })
 
-def edit_annoucement(request, id):
-    announcement = Announcement.objects.get(announcement_id = id)
-    return render(request, 'admin/editannouncement.html', { 'announcement': announcement })
-
-def update(request, id):
-    newtitle = request.POST['title']
-    newbody = request.POST['body']
-
-    users = Announcement.objects.get(announcement_id = id)
-
-    users.body = newbody
-    users.title = newtitle
-    users.save()
-    return redirect('/')
-
-
-
 @login_required(login_url='login')
 @allowed_user(allow_roles=['admin'])
 def classes(request):
-    return render(request, 'admin/classes.html')
+    
+    return render(request, 'admin/classes.html', )
 
-
-
-#student
 @login_required(login_url='login')
 @allowed_user(allow_roles=['admin'])
 def student_list(request):
@@ -90,7 +71,7 @@ def faculty_profile(request, pk):
 
 @login_required(login_url='login')
 @allowed_user(allow_roles=['admin'])
-def student_record(request):
+def accademic_record(request):
     return render(request, 'admin/academic_record.html')
 
 
@@ -99,8 +80,9 @@ def student_record(request):
 @login_required(login_url='login')
 @allowed_user(allow_roles=['student'])
 def student_dashboard(request):
-    announcement = Announcement.objects.all()
-    context = {'announcement':announcement}
+    announcement = Announcement.objects.get()
+    student = request.user.studentprofile
+    context = {'announcement':announcement, 'student': student}
     return render(request, 'student/student_dashboard.html', context)
 
 
@@ -108,24 +90,41 @@ def student_dashboard(request):
 @allowed_user(allow_roles=['student'])
 def student_profile(request):
     student = request.user.studentprofile
-    context = {'student': student}
-    return render(request, 'student/student_profile.html', context)
+    return render(request, 'student/student_profile.html', {'student': student})
 
-@login_required(login_url='login')
-@allowed_user(allow_roles=['student'])
-def setting(request):
-    student = request.user.studentprofile
-    context = {'student': student}
-    return render(request, 'student/settings.html', context)
 
 
 #faculty end
 @login_required(login_url='login')
 @allowed_user(allow_roles=['faculty'])
-def faculty(request):
-    return render(request, 'faculty/faculty-dashboard.html')
+def faculty_dashboard(request):
+    adviser = request.user.facultystaff
+    announcement = Announcement.objects.get()
+    context = {'adviser': adviser, 'announcement': announcement}
+    return render(request, 'faculty/faculty-dashboard.html', context)
 
 @login_required(login_url='login')
 @allowed_user(allow_roles=['faculty'])
-def faculty_student(request):
-    return render(request, 'faculty/student_list.html')
+def advisory(request):
+    advisoryClass = request.user.facultystaff.studentprofile_set.all()
+    adviser = request.user.facultystaff
+    context = {'advisoryClass': advisoryClass, 'adviser':adviser}
+    return render(request, 'faculty/student_list.html', context)
+
+@login_required(login_url='login')
+@allowed_user(allow_roles=['faculty'])
+def student_records(request):
+    return render(request, 'faculty/record.html')
+
+@login_required(login_url='login')
+@allowed_user(allow_roles=['faculty'])
+def student_info(request):
+    return render(request, 'faculty/record.html')
+
+@login_required(login_url='login')
+@allowed_user(allow_roles=['faculty'])
+def faculty_info(request):
+    adviser = request.user.facultystaff
+    context = {'adviser': adviser}
+    return render(request, 'faculty/faculty_profile.html', context)
+
