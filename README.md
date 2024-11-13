@@ -1,3 +1,9 @@
+9:02 pm UPDATE SA STUDENT
+![image](https://github.com/user-attachments/assets/a122f369-9f2c-4fc1-9916-0738d08c03c9)
+![image](https://github.com/user-attachments/assets/874edcf6-7adb-425a-8e64-86ca8b5586e3)
+
+
+
 UPDATE SA FACULTY 
 ![image](https://github.com/user-attachments/assets/c714d2cb-8fa2-4589-81e3-c3187a8fe830)
 ![image](https://github.com/user-attachments/assets/8cd55858-5e65-4f84-b1eb-68a8831cc0fc)
