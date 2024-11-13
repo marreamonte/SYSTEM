@@ -13,22 +13,6 @@
 
  */
 
-
-.card{
-    background-color: blueviolet;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.heading{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- }
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

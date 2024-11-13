@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import StudentProfile, FacultyStaff, Announcement, AdminStaff, AdmissionStaff,  GuidanceStaff, RegistrarStaff, section
+from .models import StudentProfile, FacultyStaff, Announcement
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -80,9 +80,9 @@ def accademic_record(request):
 @login_required(login_url='login')
 @allowed_user(allow_roles=['student'])
 def student_dashboard(request):
-    announcement = Announcement.objects.get()
+    
     student = request.user.studentprofile
-    context = {'announcement':announcement, 'student': student}
+    context = { 'student': student}
     return render(request, 'student/student_dashboard.html', context)
 
 
@@ -99,8 +99,7 @@ def student_profile(request):
 @allowed_user(allow_roles=['faculty'])
 def faculty_dashboard(request):
     adviser = request.user.facultystaff
-    announcement = Announcement.objects.get()
-    context = {'adviser': adviser, 'announcement': announcement}
+    context = {'adviser': adviser}
     return render(request, 'faculty/faculty-dashboard.html', context)
 
 @login_required(login_url='login')

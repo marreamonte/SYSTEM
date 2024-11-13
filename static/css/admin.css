@@ -75,6 +75,8 @@
   font-weight: bold;
 }
 
-/*---------- ATTENDANCE BODY: ---------*/
+/*---------- DASHBOARD CARD ---------*/
 
-
+.card-body {
+  text-align: left !important;
+}

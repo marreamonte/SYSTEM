@@ -15,7 +15,7 @@
   <body>
     <div class="d-flex" id="wrapper" style="width: 100vw; height: 100vh;">
       <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light border-bottom" style='background-color: #615EFC;'>
+        <nav class="navbar navbar-expand-lg navbar-light border-bottom p-1" style='background-color: #615EFC;'>
           <div class="container-fluid">
             <a href="{% url "student" %}" rel="noopener noreferrer"><img src="{% static "img/nobg.png" %}" alt="Logo" width="38" height="38"></a>
             <div class="ms-2 d-none d-md-block">
@@ -32,9 +32,6 @@
                       <li class="nav-item active"><a class="nav-link" href="{% url "home" %}" style="color: white">
                         <i class="bi bi-bar-chart"></i> Dashboard
                       </a></li>
-                      <li class="nav-item active"><a class="nav-link" href=" {% url "record" %}" style="color: white">
-                        <i class="bi bi-clipboard2-data"></i> Records
-                      </a></li>
                       
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white'>
@@ -49,16 +46,28 @@
                       </li>
 
                       <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white'>
+                          <i class="bi bi-clipboard2-data"></i> Records
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="">Academic Record</a>
+                          <a class="dropdown-item" href="">Anecdotal Record</a>
+                          <a class="dropdown-item" href="">Attendance Record</a>
+                          <a class="dropdown-item" href="">Financial Record</a>
+                        </div>
+                      </li>
+
+                      <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white'>
-                            <i class="bi bi-person-lines-fill"></i> List
+                            <i class="bi bi-person-lines-fill"></i> Users Lists
                           </a>
                           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{% url "student_list" %}">student</a>
+                              <a class="dropdown-item" href="{% url "student_list" %}">Students</a>
                               <a class="dropdown-item" href="{% url "faculty_list" %}">Faculty</a>
                               <a class="dropdown-item" href="{% url "student_list" %}">Guidance</a>
                               <a class="dropdown-item" href="{% url "student_list" %}">Registrar</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">admission</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">admin</a>
+                              <a class="dropdown-item" href="{% url "student_list" %}">Admission</a>
+                              <a class="dropdown-item" href="{% url "student_list" %}">Admin</a>
                           </div>
                       </li>
                       
@@ -84,11 +93,15 @@
           </div>
         </nav>
         {% block content %}
-
+        <!-- Title Page -->
+        <div class="page-title mb-4" style="margin:15px;">
+          <h2 style="color: #615EFC; font-weight: bold; margin-right: 20px; padding-left: 50px;">Dashboard</h2>
+          <hr style="margin-top: 0; color: black;">
+        </div>
           <!-- Page content-->
         <div class="container" style="padding: 10px;">
-          <div class="container border rounded shadow" style="width: 99vw; height: 50vh">
-            <h1>Annoucement</h1>
+          <div class="container mb-3 p-3 shadow" style="width: 85vw; height: 30vh; border-radius: 20px; margin-top: 0vh;">
+            <h2 class="card-title" style="font-weight: bold;">Announcement</h2>
             <hr>
             {% for announcement in announcement %}
               <h4>{{announcement.title}}</h4>
@@ -102,28 +115,37 @@
   
           {% comment %} cards {% endcomment %}
   
-          <div class="container row" style="display: flex; justify-content: center; align-item: center; width: 100vw;">
-            <div class="card col-md-5 shadow" style="margin: 5px;">
-              <div class="card-body">
-                <h5 class="card-title">Hi!! {{request.user}}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div class="d-grid gap-2">
-                  <a href="{% url "student-profile" %}" role='btn' class="btn btn-primary" style='text-decoration: none; color: white'>
-                    <i class="bi bi-eye"></i> View
-                  </a>
-                </div>
+        <!-- Bottom Cards -->
+        <div class="container" id="container-card" style="color: white;">
+          <div class="row d-flex justify-content-end align-items-stretch" style="width: max;">
+              <!-- Left Card -->
+              <div class="col-lg-6 col-md-12 mb-5 d-flex">
+                  <div class="card p-2 shadow w-100 h-100" style="border-radius: 20px;">
+                      <div class="card-body text-start" style="padding-left: 3vw;">
+                          <h3 class="card-title" style="color: #615EFC; font-weight: bold;">Hello,</h3>
+                          <p class="card-text">Welcome to Student Management System</p>
+                          <p class="card-text">ADMIN</p>
+                      </div>
+                      <div class="d-grid gap-2 p-3">
+                        <a href="{% url 'student-profile' %}" role='btn' class="btn btn-primary" style="text-decoration: none; color: white;">
+                            <i class="bi bi-eye"></i> View
+                        </a>
+                    </div>
+                  </div>
               </div>
-            </div>
-    
-            <div class="card col-md-5 shadow" style="margin: 5px;">
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link" style='text-decoration: none'>Views</a>
+              <!-- Right Card -->
+              <div class="col-lg-6 col-md-12 mb-5 d-flex">
+                  <div class="card p-2 shadow w-100" style="border-radius: 20px;">
+                      <div class="card-body text-start" style="padding-left: 3vw; padding-top: 3vh;">
+                          <br>
+                          <h4>See the list of</h4>
+                          <h2 class="card-title" style="font-weight: bold; color: black;">
+                            <a href="">Classes</a>, <a href="">Records</a>, and <a href="">Users</a>
+                          </h2><br>
+                          <p class="card-text" style="font-size: small; font-weight: normal; color: #615EFC;">School Year 2024-2025</p>
+                      </div>
+                  </div>
               </div>
-            </div>
           </div>
         </div>
         
