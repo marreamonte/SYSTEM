@@ -92,6 +92,8 @@ class StudentProfile(models.Model):
     
     section = models.ForeignKey('section', null=True, on_delete=models.SET_NULL)
     adviser = models.ForeignKey('FacultyStaff', blank=True, null=True, on_delete=models.SET_NULL)
+    level = models.ForeignKey('level', blank=True, null=True, on_delete=models.SET_NULL)
+
     class Meta:
         managed = True
         db_table = 'student_profile'

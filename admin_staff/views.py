@@ -99,8 +99,6 @@ def student_profile(request):
     student = request.user.studentprofile
     return render(request, 'student/student_profile.html', {'student': student})
 
-def settings_student(request):
-    return render(request, "student/settings.html")
 
 
 
