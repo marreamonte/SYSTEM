@@ -101,8 +101,8 @@ Then Add Email, Username and Password
 **or Use Default Credentials**
 
 *For HOD /SuperAdmin*
-Email: admin@gmail.com
-Password: admin
+Email: boogeyman
+Password: 123
 
 *For Staff*
 Email: staff@gmail.com
