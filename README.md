@@ -115,8 +115,8 @@ Password: student
 
 
 ## For Sponsor or Projects Enquiry
-1. Email - hi@vijaythapa.com
-2. LinkedIn - [vijaythapa](https://www.linkedin.com/in/vijaythapa "Vijay Thapa on LinkedIn")
+1. Email - williamalmaden517@.gmail.com
+2. LinkedIn - [Robert Fraga](https://www.linkedin.com/in/robert-fraga-2b592526a/ "Robert Fraga on LinkedIn")
 
 
 
