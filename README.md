@@ -104,15 +104,6 @@ Then Add Email, Username and Password
 Email: boogeyman
 Password: 123
 
-*For Staff*
-Email: staff@gmail.com
-Password: staff
-
-*For Student*
-Email: student@gmail.com
-Password: student
-
-
 
 ## For Sponsor or Projects Enquiry
 1. Email - williamalmaden517@.gmail.com
