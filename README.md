@@ -65,17 +65,17 @@ $  source venv/bin/activate
 
 **3. Clone this project**
 ```
-$  git clone https://github.com/RobertFraga/SVIT?tab=readme-ov-file
+  git clone https://github.com/RobertFraga/SVIT?tab=readme-ov-file
 ```
 
 Then, Enter the project
 ```
-$  cd django-student-management-system
+cd django-student-management-system
 ```
 
 **4. Install Requirements from 'requirements.txt'**
 ```python
-$  pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 **5. Now Run Server**
