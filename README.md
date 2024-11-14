@@ -65,7 +65,7 @@ $  source venv/bin/activate
 
 **3. Clone this project**
 ```
-  git clone https://github.com/RobertFraga/SVIT?tab=readme-ov-file
+git clone https://github.com/RobertFraga/SVIT?tab=readme-ov-file
 ```
 
 Then, Enter the project
@@ -94,7 +94,7 @@ $ python3 manage.py runserver
 
 Create Super User (HOD)
 ```
-$  python manage.py createsuperuser
+python manage.py createsuperuser
 ```
 Then Add Email, Username and Password
 
