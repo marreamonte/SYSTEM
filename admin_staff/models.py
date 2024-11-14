@@ -121,6 +121,9 @@ class AdminStaff(models.Model):
     class Meta:
         managed = False
         db_table = 'admin_staff'
+    
+    def __str__(self):
+        return self.surname
 
 
 class AdmissionStaff(models.Model):
@@ -140,7 +143,8 @@ class AdmissionStaff(models.Model):
         managed = False
         db_table = 'admission_staff'
 
-
+    def __str__(self):
+        return self.surname
 
 
 class GuidanceStaff(models.Model):
@@ -159,6 +163,9 @@ class GuidanceStaff(models.Model):
     class Meta:
         managed = False
         db_table = 'guidance_staff'
+    
+    def __str__(self):
+        return self.surname
 
 
 class RegistrarStaff(models.Model):
@@ -178,6 +185,8 @@ class RegistrarStaff(models.Model):
         managed = False
         db_table = 'registrar_staff'
 
+    def __str__(self):
+        return self.surname
 
 
 class Announcement(models.Model):

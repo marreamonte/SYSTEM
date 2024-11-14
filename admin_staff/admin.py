@@ -25,8 +25,6 @@ class level(admin.ModelAdmin):
     ordering = ('level', )
 
 
-    
-
 
 @admin.register(Announcement)
 class announcement(admin.ModelAdmin):
@@ -35,9 +33,3 @@ class announcement(admin.ModelAdmin):
     search_fields = ('title', )
 
 
-admin.site.register(AdminStaff)
-admin.site.register(AdmissionStaff)
-
-
-admin.site.register(GuidanceStaff)
-admin.site.register(RegistrarStaff)
