@@ -1,3 +1,137 @@
+# Django Student Management System (SVIT)
+
+Student Management System for St. Vincent Institute of Technology
+conducting system development for academic and research porposes
+
+## Features of this Project
+the features of the system is still under development
+here are some
+
+### A. Admin Users Can
+1. Manage Faculty (Add, Update and Delete)
+2. Manage Admin (Add, Update and Delete)
+3. Manage Admission (Add, Update and Delete)
+4. Manage Guidance (Add, Update and Delete)
+5. Manage Registrar (Add, Update and Delete)
+6. Manage Students (Add, Update and Delete)
+7. Manage grades (Add, Update and Delete)
+8. Manage Subjects (Add, Update and Delete)
+9. View Student Attendance
+
+### A. Faculty Staff or Advisory
+1. Manage Student Attendance (Add, Update and Delete)
+2. Mange Student Grades (Add, Update and Delete)
+
+### C. Students Can
+2. View Attendance
+3. View Grade
+
+## How to Install and Run this project?
+
+### Pre-Requisites:
+1. Install Git Version Control
+[ https://git-scm.com/ ]
+
+2. Install Python Latest Version
+[ https://www.python.org/downloads/ ]
+
+### Installation
+**1. Create a Folder where you want to save the project**
+
+**2. Create a Virtual Environment and Activate**
+Install Virtual Environment First
+Create Virtual Environment
+
+For Windows
+```
+py -m venv .venv
+```
+For Mac
+```
+$  python3 -m venv venv
+```
+
+Activate Virtual Environment
+
+For Windows
+```
+.venv/scripts/activate
+```
+
+For Mac
+```
+$  source venv/bin/activate
+```
+
+**3. Clone this project**
+```
+$  git clone 
+```
+
+Then, Enter the project
+```
+$  cd django-student-management-system
+```
+
+**4. Install Requirements from 'requirements.txt'**
+```python
+$  pip install -r requirements.txt
+```
+
+**5. Add the hosts**
+
+- Got to settings.py file 
+- Then, On allowed hosts, Add [‘*’]. 
+```python
+ALLOWED_HOSTS = ['*']
+```
+*No need to change on Mac.*
+
+
+**6. Now Run Server**
+
+Command for PC:
+```python
+$ python manage.py runserver
+```
+
+Command for Mac:
+```python
+$ python3 manage.py runserver
+```
+
+**7. Login Credentials**
+
+Create Super User (HOD)
+```
+$  python manage.py createsuperuser
+```
+Then Add Email, Username and Password
+
+**or Use Default Credentials**
+
+*For HOD /SuperAdmin*
+Email: admin@gmail.com
+Password: admin
+
+*For Staff*
+Email: staff@gmail.com
+Password: staff
+
+*For Student*
+Email: student@gmail.com
+Password: student
+
+
+
+## For Sponsor or Projects Enquiry
+1. Email - hi@vijaythapa.com
+2. LinkedIn - [vijaythapa](https://www.linkedin.com/in/vijaythapa "Vijay Thapa on LinkedIn")
+
+
+
+
+
 9:02 pm UPDATE SA STUDENT
 ![image](https://github.com/user-attachments/assets/a122f369-9f2c-4fc1-9916-0738d08c03c9)
 ![image](https://github.com/user-attachments/assets/874edcf6-7adb-425a-8e64-86ca8b5586e3)
