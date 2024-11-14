@@ -65,7 +65,7 @@ $  source venv/bin/activate
 
 **3. Clone this project**
 ```
-$  git clone 
+$  git clone https://github.com/RobertFraga/SVIT?tab=readme-ov-file
 ```
 
 Then, Enter the project
