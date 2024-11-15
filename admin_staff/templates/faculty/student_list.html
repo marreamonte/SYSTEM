@@ -24,7 +24,8 @@
               <label for="" style="padding: 4vh 1vw 0;">Adviser</label>
               <h3  style="padding: 0 1vw;">{{adviser.surname}} {{adviser.first_name}}</h3>
               <h4 style='color: #615EFC; padding: 0 1vw;'>Section: {{adviser.section}}</h4>
-              <label for="" style="padding: 2vh 1vw 0;">Students</label>
+              <hr>
+              <label for="" class="text p-2 m-0" style="padding: 2vh 1vw 0;">Students</label>
               {% for advisoryClass in advisoryClass %}
                     <tr>
                       <td>{{advisoryClass.student_lrn}}</td>
@@ -33,7 +34,7 @@
                       <td>{{advisoryClass.section}}</td>
                       <td>
                         <button class="btn btn-primary" type="submit" title="Edit"><a href="{% url "info" advisoryClass.student_lrn %}" style="text-decoration: none; color: inherit" >
-                          <i class="bi bi-eye"></i>
+                          View
                         </a></button>
                       </td>
                     </tr>

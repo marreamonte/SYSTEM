@@ -145,3 +145,8 @@ def faculty_info(request):
     context = {'adviser': adviser}
     return render(request, 'faculty/faculty_profile.html', context)
 
+##### DREI - "ITO YUNG NGA INADD KO"
+
+def attendance_record(request):
+    return render(request, 'faculty/attendance_record.html')
+
