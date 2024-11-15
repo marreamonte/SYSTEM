@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css\sidebar.css' %}">
     <link rel="stylesheet" href="{% static "css\admin.css" %}">
     <script src="{% static 'js\sidebar.js' defer %}"></script>
+    <link rel="shortcut icon" href="{% static "img/nobg.png" %}" type="image/x-icon">
 </head>
 <body>
     <div class="d-flex" id="wrapper" style="width: 100vw; height: 100vh;">
@@ -71,6 +72,8 @@
             <div class="container mb-3 p-5 shadow" style="width: 85vw; height: 30vh; border-radius: 20px; margin-top: 4vh;">
               <h2 class="card-title" style="font-weight: bold;">Announcement</h2>
               <hr>
+              <h5>Titile: {{announcement.title}}</h5>
+              <h6>{{announcement.body}}</h6>
             </div>
           </div>
 

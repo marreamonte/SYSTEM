@@ -31,17 +31,17 @@ def logout_user(request):
     return redirect('login')
     
 
-#announcement_admin
+#admin dashboard
 @login_required(login_url='login')
 @admin_only
 def admin_dashboard(request):
-    announcement = Announcement.objects.all()
-    return render(request, 'admin/admin_dashboard.html', { 'announcement': announcement })
+    announcement = Announcement.objects.get
+    context = {'announcement': announcement}
+    return render(request, 'admin/admin_dashboard.html', context)
 
 @login_required(login_url='login')
 @allowed_user(allow_roles=['admin'])
 def classes(request):
-    
     return render(request, 'admin/classes.html', )
 
 @login_required(login_url='login')
@@ -74,24 +74,31 @@ def faculty_profile(request, pk):
 def accademic_record(request):
     return render(request, 'admin/academic_record.html')
 
+@login_required(login_url='login')
+@allowed_user(allow_roles=['admin'])
 def anecdotal_record(request):
     return render(request, "admin/anecdotal_record.html")
 
+def financial_record(request):
+    return render(request, "admin/financial_record.html")
 
 #accounting end
-def financial_record(request):
-    return render(request, "accounting/financial_record.html")
+@login_required(login_url='login')
+@allowed_user(allow_roles=['accounting'])
+def accounting_dashboard(request):
+    announcement = Announcement.objects.get
+    context = {'announcment': announcement}
+    return render(request, "accounting/financial_record.html", context)
 
 
 #student end
 @login_required(login_url='login')
 @allowed_user(allow_roles=['student'])
 def student_dashboard(request):
-    
+    announcement = Announcement.objects.get
     student = request.user.studentprofile
-    context = { 'student': student}
+    context = { 'student': student, 'announcement': announcement}
     return render(request, 'student/student_dashboard.html', context)
-
 
 @login_required(login_url='login')
 @allowed_user(allow_roles=['student'])
@@ -100,14 +107,13 @@ def student_profile(request):
     return render(request, 'student/student_profile.html', {'student': student})
 
 
-
-
 #faculty end
 @login_required(login_url='login')
 @allowed_user(allow_roles=['faculty'])
 def faculty_dashboard(request):
+    announcement = Announcement.objects.get
     adviser = request.user.facultystaff
-    context = {'adviser': adviser}
+    context = {'adviser': adviser, 'announcement': announcement}
     return render(request, 'faculty/faculty-dashboard.html', context)
 
 @login_required(login_url='login')
@@ -120,13 +126,17 @@ def advisory(request):
 
 @login_required(login_url='login')
 @allowed_user(allow_roles=['faculty'])
-def student_records(request):
-    return render(request, 'faculty/record.html')
+def student_info(request, pk):
+    student = StudentProfile.objects.get(student_lrn = pk)
+    context = {'student': student}
+    return render(request, 'faculty/student_profile.html', context)
+
 
 @login_required(login_url='login')
 @allowed_user(allow_roles=['faculty'])
-def student_info(request):
+def student_records(request):
     return render(request, 'faculty/record.html')
+
 
 @login_required(login_url='login')
 @allowed_user(allow_roles=['faculty'])

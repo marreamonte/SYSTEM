@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class subject(models.Model):
+    subjectname = models.CharField(max_length=30)
+    
+    def __str__(self):
+        return self.subjectname
 
 class level(models.Model):
     level = models.CharField(max_length=20);
@@ -48,8 +53,9 @@ class FacultyStaff(models.Model):
 
     contact = models.BigIntegerField(blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)
-    
     section = models.OneToOneField('section', blank=True, null=True, on_delete=models.SET_NULL)
+    subject = models.OneToOneField('subject', blank=True, null=True, on_delete=models.SET_NULL)
+
     
     class Meta:
         managed = True

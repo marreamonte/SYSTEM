@@ -14,6 +14,7 @@ urlpatterns = [
     path('faculty-list/', views.faculty_list, name='faculty_list'),
     path('profile/<int:pk>', views.faculty_profile, name='faculty_profile'),
     path('record', views.accademic_record, name='record'),
+    path('finance', views.financial_record, name='financ'),
     path("anecdotal", views.anecdotal_record, name="anecdotalrecord"),
 
     #accounting board
@@ -27,7 +28,10 @@ urlpatterns = [
     #faculty board
     path('faculty', views.faculty_dashboard, name='faculty'),
     path('advisory', views.advisory, name='advisory'),
-    path('adviser', views.faculty_info, name='faculty_info'),
     path('info/<int:pk>', views.student_info, name='info'),
+    path('adviser', views.faculty_info, name='faculty_info'),
+
+    #accounting
+    path('accounting', views.accounting_dashboard, name='accounting' ),
     
 ]
