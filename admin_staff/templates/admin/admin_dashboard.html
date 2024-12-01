@@ -9,149 +9,205 @@
     <title>dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{% static "css/sidebar.css" %}">
-    <link rel="stylesheet" href="{% static "css\admin.css" %}">
+    <link rel="stylesheet" href="{% static "css/admin.css" %}">
     <script src="{% static 'js/sidebar.js' defer %}"></script>
     <link rel="shortcut icon" href="{% static "img/nobg.png" %}" type="image/x-icon">
   </head>
-  <body>
-    <div class="d-flex" id="wrapper" style="width: 100vw; height: 100vh;">
-      <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light border-bottom p-1" style='background-color: #615EFC;'>
-          <div class="container-fluid">
-            <a href="{% url "student" %}" rel="noopener noreferrer"><img src="{% static "img/nobg.png" %}" alt="Logo" width="38" height="38"></a>
-            <div class="ms-2 d-none d-md-block">
-              <span style="font-size: large; font-weight: bold; color: white;">St. Vincent Institute of Technology</span><br>
-              <p style="font-size: 15px; margin: 0; color: white; letter-spacing: 1px;">Student Management System</p>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <div class="d-md-none ms-2 mb-2">
-                    <h1 style="font-size: large; font-weight: bold; color: white; text-align: center; padding: 0; margin: 0;">St. Vincent Institute of Technology</h1><br>
-                    <p style="font-size: 15px; margin: 0; color: white; text-align: center">Student Management System</p>
-                  </div>
-                  <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                      <li class="nav-item active"><a class="nav-link" href="{% url "home" %}" style="color: white">
-                        <i class="bi bi-bar-chart"></i> Dashboard
-                      </a></li>
-                      
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white'>
-                            <i class="bi bi-people-fill"></i> Classes
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{% url "classes" %}">Grade 7</a>
-                              <a class="dropdown-item" href="">Grade 8</a>
-                              <a class="dropdown-item" href="">Grade 9</a>
-                              <a class="dropdown-item" href="">Grade 10</a>
-                          </div>
-                      </li>
 
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white'>
-                          <i class="bi bi-clipboard2-data"></i> Records
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{% url "record" %}">Academic Record</a>
-                          <a class="dropdown-item" href="{% url "anecdotalrecord" %}">Anecdotal Record</a>
-                          <a class="dropdown-item" href="">Attendance Record</a>
-                          <a class="dropdown-item" href="{% url "financ" %}">Financial Record</a>
-                        </div>
-                      </li>
+<body>
+  <!-- Header with logo -->
+  <div class="header">
+    <img src="{% static 'img/svit_logo.png' %}" alt="Logo" class="logo">
+  </div>
 
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color: white'>
-                            <i class="bi bi-person-lines-fill"></i> Users Lists
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{% url "student_list" %}">Students</a>
-                              <a class="dropdown-item" href="{% url "faculty_list" %}">Faculty</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">Guidance</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">Registrar</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">Admission</a>
-                              <a class="dropdown-item" href="{% url "student_list" %}">Admin</a>
-                          </div>
-                      </li>
-                      
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-                            <i class="bi bi-person"></i> Account
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#!">
-                                <i class="bi bi-person"></i> Profle
-                              </a>
-                              <a class="dropdown-item" href="#!">
-                                <i class="bi bi-gear"></i> Setting
-                              </a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="{% url "logout" %}">
-                                <i class="bi bi-box-arrow-left"></i> Logout
-                              </a>
-                          </div>
-                      </li>
-                  </ul>
-            </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="container-fluid d-flex flex-column pt-2" id="nameTitle">
+      <h1>STUDENT MANAGEMENT SYSTEM</h1>
+      <h2>St. Vincent Institute of Technology</h2>
+    </div>
+    <!--DEHAZE MOBILE VIEW-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mt-lg-0">
+        <!--DASHBOARD-->
+        <li class="nav-item dashboard"><a class="nav-link" href="{% url "home" %}" style="color: white">
+          <i class="bi bi-bar-chart"></i> Dashboard
+        </a></li>
+
+        <!--dropdown: CLASSES, RECORDS, USERS, ACCOUNT-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+            <i class="bi bi-clipboard2-data"></i> Classes
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url "classes" %}">
+              <i class="bi bi-person"></i> Grade 7
+            </a>
+            <a class="dropdown-item" href="">
+              <i class="bi bi-box-arrow-left"></i> Grade 8
+            </a>
+            <a class="dropdown-item" href="">
+              <i class="bi bi-box-arrow-left"></i> Grade 9
+            </a>
+            <a class="dropdown-item" href="">
+              <i class="bi bi-box-arrow-left"></i> Grade 10
+            </a>
           </div>
-        </nav>
-        {% block content %}
-        <!-- Title Page -->
-        <div class="page-title mb-4" style="margin:15px;">
-          <h2 style="color: #615EFC; font-weight: bold; margin-right: 20px; padding-left: 50px;">Dashboard</h2>
-          <hr style="margin-top: 0; color: black;">
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+            <i class="bi bi-clipboard2-data"></i> Records
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url "record" %}">
+              <i class="bi bi-person"></i> Academic Records
+            </a>
+            <a class="dropdown-item" href="{% url "anecdotalrecord" %}">
+              <i class="bi bi-box-arrow-left"></i> Anecdotal Records
+            </a>
+            <a class="dropdown-item" href="{% url "financ" %}">
+              <i class="bi bi-box-arrow-left"></i> Financial Records
+            </a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+            <i class="bi bi-clipboard2-data"></i> User Lists
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url "student_list" %}">
+              <i class="bi bi-person"></i> Students
+            </a>
+            <a class="dropdown-item" href="{% url "faculty_list" %}">
+              <i class="bi bi-box-arrow-left"></i> Advisers
+            </a>
+            <a class="dropdown-item" href="">
+              <i class="bi bi-box-arrow-left"></i> Guidance
+            </a>
+            <a class="dropdown-item" href="">
+              <i class="bi bi-box-arrow-left"></i> Registrar
+            </a>
+            <a class="dropdown-item" href="">
+              <i class="bi bi-box-arrow-left"></i> Admission
+            </a>
+          </div>
+        </li><li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+            <i class="bi bi-person"></i> Account
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="">
+              <i class="bi bi-person"></i> Settings
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"  style="color: red;" href="{% url "logout" %}">
+              <i class="bi bi-box-arrow-left"></i> Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}
+  <!--Page Title-->
+  <div class="container-fluid mt-3 p-2 border shadow-sm" id="pageTitle">
+    <div class="row g-2 align-items-center mt-0">
+      <div class="col-md-5">
+        <div class="page-title mb-0 mt-0">
+          <h2 style="font-weight: bold;">
+            Welcome to Dashboard!
+          </h2>
         </div>
-          <!-- Page content-->
-        <div class="container" style="padding: 10px;">
-          <div class="container mb-3 p-5 shadow" style="width: 85vw; height: 30vh; border-radius: 20px; margin-top: 0vh;">
-            <h2 class="card-title" style="font-weight: bold;">Announcement</h2>
-            <hr>
-            <h5>Titile: {{announcement.title}}</h5>
-            <h6>{{announcement.body}}</h6>
-          </div>
-  
-          {% comment %} cards {% endcomment %}
-  
-        <!-- Bottom Cards -->
-        <div class="container" id="container-card" style="color: white;">
-          <div class="row d-flex justify-content-end align-items-stretch" style="width: max;">
-              <!-- Left Card -->
-              <div class="col-lg-6 col-md-12 mb-5 d-flex">
-                  <div class="card p-2 shadow w-100 h-100" style="border-radius: 20px;">
-                      <div class="card-body text-start" style="padding-left: 3vw;">
-                          <h3 class="card-title" style="color: #615EFC; font-weight: bold;">Hello,</h3>
-                          <p class="card-text">Welcome to Student Management System</p>
-                          <p class="card-text">ADMIN</p>
-                      </div>
-                      <div class="d-grid gap-2 p-3">
-                        <a href="{% url 'student-profile' %}" role='btn' class="btn btn-primary" style="text-decoration: none; color: white;">
-                            <i class="bi bi-eye"></i> View
-                        </a>
-                    </div>
-                  </div>
-              </div>
-              <!-- Right Card -->
-              <div class="col-lg-6 col-md-12 mb-5 d-flex">
-                  <div class="card p-2 shadow w-100" style="border-radius: 20px;">
-                      <div class="card-body text-start" style="padding-left: 3vw; padding-top: 3vh;">
-                          <br>
-                          <h4>See the list of</h4>
-                          <h2 class="card-title" style="font-weight: bold; color: black;">
-                            <a href="">Classes</a>, <a href="">Records</a>, and <a href="">Users</a>
-                          </h2><br>
-                          <p class="card-text" style="font-size: small; font-weight: normal; color:#615EFC;">School Year 2024-2025</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-        
-
-        {% endblock content %}
+      </div>
+      <div class="col-md-3 mt-4 text-end">
+        <h6 id="schoolYear" style="font-size: large;">
+          School Year: 2024-2025
+        </h6>
+      </div>
+      <div class="col-md-4 mt-3 text-end">
+        <span id="live-time" style="color: #333; font-weight: normal; font-size: 1em; padding-right: 5vw;"></span>
       </div>
     </div>
-    
-  
-  
+  </div>
+
+  <!-- JavaScript FOR LIVE TIME -->
+  <script>
+    function updateLiveTime() {
+      const timeElement = document.getElementById('live-time');
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString(); // Formats time as HH:MM:SS AM/PM
+      timeElement.textContent = ` ${formattedTime}`;
+    }
+
+    // Update time every second
+    setInterval(updateLiveTime, 1000);
+
+    // Initialize the time immediately
+    updateLiveTime();
+  </script>
+
+  <!--Page Content: Dashboard-->
+  <div class="container-fluid mt-3" id="division">
+    <div class="row m-0 p-0 align-items-center">
+
+      <!--First Division for: Announcements-->
+      <div class="col-9 m-1">
+          <div class="row p-2 d-flex" id="announcementTitle">
+            <div class="col-9 pt-1 mb-0" style="height: 6vh;">
+              <h2 style="font-size: 220%; font-weight: bold;">
+                Announcements <i class="bi bi-megaphone-fill"></i>
+              </h2>
+            </div>
+            <div class="col m-0 p-0 text-end" style="height: 5vh;">
+              <button type="button" class="btn m-2 btn-sm btn-primary">Add New Announcement</button>
+            </div>
+            <span class="p-0 m-0 mt-1"><hr style="height: 3px; background-color: #2A3335; border: none;"></span>
+          </div>
+
+          <div class="container bg-primary" id="announcementBody">
+            <div class="card mt-1 mb-2 border-1 rounded-3 shadow=">
+
+            </div>
+          </div>
+      </div>
+      <!--Second Division for: Menu-->
+      <div class="col m-1">
+        <div class="p-2 pb-0 mb-0" id="menuTitle"><h4>Menu</h4></div>
+        <div class="d-flex flex-column mt-0">
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h3>Testing 1</h3>
+            </div>
+          </div>
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h3>Testing 2</h3>
+            </div>
+          </div>
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h3>Testing 3</h3>
+            </div>
+          </div>
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h3>Testing 4</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {% endblock content %}
+
+  <footer class="d-flex align-items-center justify-content-center" style="height: 8vh;">
+    <p class="text-center" style="font-size: 80%; opacity: 50%;">All rights reserved to Connext.</p>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
