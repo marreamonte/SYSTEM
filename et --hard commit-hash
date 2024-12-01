@@ -1,0 +1,40 @@
+[33mc0943c3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m new css file
+[33mddfc2ba[m new layout
+[33m0c3fbbd[m[33m ([m[1;32mnew[m[33m)[m edited few layout and added statice attendance
+[33mfc41978[m added whitenoise
+[33m3f20f8b[m add more
+[33ma1fc152[m add group in decorators
+[33m363034c[m added level attribute in in student
+[33mff1ce7a[m update readme
+[33m9717e1d[m update readme
+[33mc5c2f19[m update readme
+[33mebbc8bb[m update readme
+[33m2ff55f9[m update readme
+[33mdee5ba6[m update readme
+[33m0bee40b[m update readme
+[33mcb9286b[m update readme
+[33me74b45f[m Final Draf
+[33md3d291f[m Update README.md
+[33mefe6bdd[m Merge branch 'master' of https://github.com/marreamonte/sms-testing-3 git commit -m "Merge remote-tracking branch 'origin/master' into master"
+[33m9cad53e[m fixed student view layout
+[33m40daaa9[m Update README.md
+[33meb04df0[m fixed faculty view layout
+[33mc466ff9[m updated view of classes
+[33m6fd418c[m edit view layout of classes
+[33mbc75780[m Update README.md
+[33m35c29df[m Merge remote-tracking branch 'origin/master' into master
+[33mb8e09e2[m added layout: financial, acad, anecdotal
+[33mddd663f[m Create README.md
+[33med13f69[m first commit
+[33mba2d937[m wala lang
+[33md92a493[m di ko alam
+[33m197ae2e[m add some icon
+[33mcc80db7[m first drap
+[33m6687b8c[m final before the total recreation
+[33m9af2ab3[m di ko alam
+[33mc84db24[m faculty profile added
+[33m0559d62[m wala lang
+[33m3c82847[m modify the django-admin
+[33m12b5236[m added basic login for superadmin
+[33m7b5add0[m added class
+[33m619ad25[m first commit

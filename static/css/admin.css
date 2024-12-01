@@ -1,63 +1,112 @@
-/*---------- NAVBAR ----------*/
-.container-fluid {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FBFBFB;
+}
+
+/* ~~~~~~ Navigation Bar*/
+.navbar {
+  justify-content: flex-start ;
+  background: linear-gradient(to right, #0C356A, #0174BE);
+  color: white;
+  z-index: 5; /* Ensures the navbar is below the image */
+}
+
+#nameTitle h1 {
+  align-self: flex-start;
+  font-weight: bold;
+  font-size: 130%;
+  padding-left: 12vw;
+  margin: 0;
+}
+
+#nameTitle h2 {
+  align-self: flex-start;
+  font-size: 110%;
+  padding-left: 13vw;
+}
+
+.logo {
+  border-radius: 100%;
+  position: absolute; /* Makes the image overlap */
+  top: 2vh; /* Adjust this to control how much it overlaps the navbar */
+  left: 2vw; /* Adjust horizontal alignment */
+  width: 10vw; /* Adjust image size */
+  height: auto;
+  z-index: 10; /* Ensures the image appears on top of the navbar */
+}
 
 .nav-item.dropdown .dropdown-menu {
-    right: 0;
-    left: auto;
+  right: 0;
+  left: auto;
 }
 
 .navbar .dropdown-toggle::after {
-  display: none;
-}
-
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.5); /* Lighten the border color */
+display: none;
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-
-.nav-link {
-  color: white; /* Keep the text white */
-  transition: background-color 0.3s ease, font-weight 0.3s ease; /* Smooth transition for both background and font-weight */
-  font-weight: normal;
+.nav-item.dropdown {
+  width: 9vw;
+  text-align: center;
 }
 
-.nav-link:hover, .nav-link:focus {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.1); /* Darker background on hover */
-  border-radius: 10px; /* Optional: make the background slightly rounded */
+.nav-item.dashboard {
+  width: 10vw;
+  text-align: center;
 }
 
-.nav-link.active {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.2); /* Even darker background when active */
-  border-radius: 10px;
+li {
+  font-weight: 500;
+  font-size: 105%;
+}
+
+/* ~~~~~~ PAGE CONTENTS: ADMIN*/
+
+#pageTitle > .row {
+  padding-left: 13vw;
+}
+
+.page-title > h2 {
+  color: #0C356A;
+}
+
+#pageTitle {
+  background: linear-gradient(to left, #FFC436, #f7dea5, #FBFBFB, #faf3e2);
+  z-index: 5;
+}
+
+/* ~~~~~~~~ PAGE CONTENTS: DASHBOARD-ADMIN*/
+.col-9, .col {
+  height: 100vh;
+}
+
+#division > .row {
+  margin: 0;
+}
+
+#announcementTitle .btn {
+  font-size: small;
   font-weight: bold;
+  padding: 3%;
 }
 
-.dropdown-toggle:active,
-.dropdown-toggle:focus,
-.dropdown-toggle.show {
-  background-color: #4b48dc; /* Same darker background for active dropdown */
-  font-weight: bold; /* Keep it bold */
+#announcementBody {
+  height: 81vh;
+  overflow-y: scroll;
 }
 
-@media (max-width: 767px) {
-  .nav-link {
-    width: 100%; /* Make each nav item take up full width */
-    margin-top: 0;
-    margin-bottom: 5px;
-    text-align: center;
-  }
+#announcementBody > .card {
+  width: 100%;
+  background: linear-gradient(to bottom, #f3f4f7, #d4d7e0);
+  border-color: #2A3335;
 }
 
+<<<<<<< HEAD
 /*---------- END OF NAVBAR ----------*/
 
 
@@ -81,3 +130,11 @@
   text-align: left !important;
 }
 
+=======
+.card {
+  height: 20vh;
+  margin-bottom: 3vh;
+  color: white;
+  background: linear-gradient(to bottom, rgba(1, 116, 190, 1), rgba(97, 149, 182, 1));
+}
+>>>>>>> 7286c49 (restored new layout)
