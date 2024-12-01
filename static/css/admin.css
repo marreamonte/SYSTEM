@@ -106,35 +106,9 @@ li {
   border-color: #2A3335;
 }
 
-<<<<<<< HEAD
-/*---------- END OF NAVBAR ----------*/
-
-
-/*---------- NAV TABS ---------*/
-.container {
-  font-family: "Lato", sans-serif;
-}
-
-.container .nav-link {
-  color: blue;
-}
-
-.container .nav-link.active {
-  color: black;
-  font-weight: bold;
-}
-
-/*---------- DASHBOARD CARD ---------*/
-
-.card-body {
-  text-align: left !important;
-}
-
-=======
 .card {
   height: 20vh;
   margin-bottom: 3vh;
   color: white;
   background: linear-gradient(to bottom, rgba(1, 116, 190, 1), rgba(97, 149, 182, 1));
 }
->>>>>>> 7286c49 (restored new layout)
